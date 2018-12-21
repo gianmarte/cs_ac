@@ -31,6 +31,7 @@ define('Facets.Browse.View'
 	,	'facets_items_collection.tpl'
 	,	'facets_items_collection_view_cell.tpl'
 	,	'facets_items_collection_view_row.tpl'
+	,	'shopping_layout.tpl'
 
 	,	'Backbone'
 	,	'Backbone.CollectionView'
@@ -65,6 +66,7 @@ define('Facets.Browse.View'
 	,	facets_items_collection_tpl
 	,	facets_items_collection_view_cell_tpl
 	,	facets_items_collection_view_row_tpl
+	,	shopping_layout_tpl
 
 	,	Backbone
 	,	BackboneCollectionView
@@ -138,6 +140,8 @@ define('Facets.Browse.View'
 				selector: 'this.collapsable_elements["facet-header"]'
 			,	collapsed: false
 			};
+
+			console.log("_.bindAll(this, 'render')",_.bindAll(this, "render"));
 		}
 
 		// @method getPagination Return the info of the current options in the PLP
@@ -505,7 +509,12 @@ define('Facets.Browse.View'
 
 	,	render: function()
 		{
+			this.trigger('render');
 			var list_type = 'Facets';
+
+			_.defer(_.bind(function() {  
+				this.testing();
+			  }, this));
 
 			if (this.model.get('category'))
 			{
@@ -519,6 +528,16 @@ define('Facets.Browse.View'
 			Tracker.getInstance().trackProductList(this.model.get('items'), list_type);
 
 			this._render();
+		}
+	,	testing: function()
+		{
+			jQuery(window).on("scroll", function(){
+				var scrollHeight = jQuery(document).height();
+				var scrollPos = jQuery(window).height() + jQuery(window).scrollTop();
+				if((scrollHeight - scrollPos) / scrollHeight == 0){
+					console.log('success');
+				}
+			});
 		}
 
 		// @method getBreadcrumbPages

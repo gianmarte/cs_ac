@@ -45,6 +45,7 @@ define(
 
 				processed_option_items.push(processed_option_item);
 			});
+			console.log('processed_option_items', processed_option_items);
 
 			// @class Facets.ItemListShowSelector.View.Context
 			return {

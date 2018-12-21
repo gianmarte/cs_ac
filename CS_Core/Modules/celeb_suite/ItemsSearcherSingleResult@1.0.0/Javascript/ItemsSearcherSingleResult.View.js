@@ -26,6 +26,40 @@ define(
         'use strict';
         console.log("ItemsSearcherView.prototype", ItemsSearcherView.prototype);
 
+        _.extend(ItemsSearcherView.prototype, {
+            newConfigureTypeahead: function(){
+                if (SC.ENVIRONMENT.jsEnvironment !== 'server') {
+                    self.$searchElement.typeahead(typeaheadOptions, this.getTypeAheadConfiguration())
+						.on('typeahead:selected', _.bind(self.onSingleItem, self));
+                }
+            },
+            onSingleItem: function(e, item_id)
+            {
+                //if (this.collection.length == 1) {
+                    this.trigger('singleResult'
+                    , {
+                        selectedItem: this.collection.get(item_id)
+                        , collection: this.collection.models
+                        , currentQuery: this.options.query
+                        , isResultCompleted: this.options.ajaxDone
+                    });
+            //}
+            },
+            newOnKeyDown: function(){
+                //if (this.collection.length == 1) {
+                    this.trigger('singleResult'
+                    , {
+                        selectedItem: this.collection.get(item_id)
+                        , collection: this.collection.models
+                        , currentQuery: this.options.query
+                        , isResultCompleted: this.options.ajaxDone
+                    });
+            //}
+            },
+
+            
+        });
+
         /** ItemsSearcherView.extend({
             newKeyDown: function () {
                 if()
@@ -47,20 +81,15 @@ define(
 
         });**/
 
-        ItemsSearcherView.prototype.onSingleItem = function onSingleItem(e, item_id) {
-            //if (this.collection.length == 1) {
+        /** ItemsSearcherView.prototype.onSingleItem = function onSingleItem(e, item_id) {
+            if (this.collection.length == 1) {
             this.trigger('singleResult'
-                //@class ItemsSearcher.View.itemSelected.Properties
                 , {
-                    //@property {Item.Model?} selectedItem
                     selectedItem: this.collection.get(item_id)
-                    //@property {Array<Item.Model>} collection
                     , collection: this.collection.models
-                    //@property {String} currentQuery
                     , currentQuery: this.options.query
-                    //@property {Boolean} isResultCompleted
                     , isResultCompleted: this.options.ajaxDone
                 });
             //}
-        }
+        }*/
     });
