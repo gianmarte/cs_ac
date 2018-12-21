@@ -12,6 +12,7 @@
         "deploy": "DeployDistribution"
     },
     "modules": {
+        "celeb_suite/Facets.Browse.Extension": "1.0.0",
         "celeb_suite/ItemsSearcherSingleResult": "1.0.0",
         "celeb_suite/SiteSearchSingleResult": "1.0.0",
         "suitecommerce/Account": "aconcaguaR2",
@@ -196,6 +197,7 @@
                 "entryPoint": "SC.Shopping.Starter",
                 "exportFile": "shopping.js",
                 "dependencies": [
+                    "Facets.Browse.View.Extension",
                     "SiteSearchSingleResult.View",
                     "ItemsSearcherSingleResult.View",
                     "SC.Environment.Component",
