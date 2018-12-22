@@ -202,7 +202,7 @@ define('Facets.Router'
 				.then(function (facetResponse)
 				{
 					facetResponse = isCategoryPage ? facetResponse[0] : facetResponse;
-
+					
 					if (facetResponse.corrections && facetResponse.corrections.length > 0)
 					{
 						var unaliased_url = self.unaliasUrl(fullurl, facetResponse.corrections);
