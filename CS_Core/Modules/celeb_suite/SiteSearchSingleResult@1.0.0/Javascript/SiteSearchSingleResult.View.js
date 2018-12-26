@@ -10,8 +10,8 @@ define(
     'SiteSearchSingleResult.View'
     , [
         'SC.Configuration'
-        ,'SiteSearch.View'
-        ,'ItemsSearcher.View'
+        , 'SiteSearch.View'
+        , 'ItemsSearcher.View'
         , 'Backbone.CompositeView'
 
         , 'Backbone'
@@ -20,19 +20,18 @@ define(
     ]
     , function (
         Configuration
-    ,   SiteSearchView
-    ,   ItemsSearcherView
-    ,   BackboneCompositeView
+        , SiteSearchView
+        , ItemsSearcherView
+        , BackboneCompositeView
 
-    ,   Backbone
-    ,   _
-    , Utils
+        , Backbone
+        , _
+        , Utils
     ) {
         'use strict';
 
         SiteSearchView.extend({
-            initialize: function()
-            {
+            initialize: function () {
                 SiteSearchView.prototype.initialize.apply(this, args);
                 this.itemsSearcherComponent.on('singleResult', this.onSingleResult, this);
             }

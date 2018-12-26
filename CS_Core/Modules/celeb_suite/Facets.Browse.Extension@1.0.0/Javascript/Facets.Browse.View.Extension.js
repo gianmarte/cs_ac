@@ -35,39 +35,43 @@ define('Facets.Browse.View.Extension'
         , Utils
     ) {
         'use strict';
-        _.extend(FacetsBrowseView.prototype, {
-            render: function () {
+        FacetsBrowseView.extend({
+            renderPlus: function () {
                 _.defer(_.bind(function () {
                     this.onReachBottomPage(this.model.get('items').length, this.model.get('total'));
                 }, this));
 
-                var list_type = 'Facets';
-
-                if (this.model.get('category')) {
-                    list_type = 'Category';
-                }
-                else if (this.translator.getOptionValue('keywords')) {
-                    list_type = 'Search';
-                }
-
-                Tracker.getInstance().trackProductList(this.model.get('items'), list_type);
-
                 this._render();
             },
+            render: function () {
+                _.extend({}, FacetsBrowseView.prototype.render, this.renderPlus());
+                //FacetsBrowseView.prototype.render.apply(this, renderPlus());
+            },
             onReachBottomPage: function (count, total) {
-                var num = count+24;
-                num = num <= 100 ? count+=24 : num = 100;
-                console.log("Backbone.history.fragment", Backbone.history);
-                if(num <= total || num <= 100){
+                var num = count + 24;
+                num = num <= 100 ? num : num = 100;
+                console.log('total', total);
+                console.log('count', count);
+                console.log('num', num);
+                console.log('num <= count + 24', num <= count + 24);
+
+                if (num < total && num <= 101) {
                     jQuery(window).on("scroll", function () {
                         var docHeight = jQuery(document).height();
                         var scrollPos = jQuery(window).height() + jQuery(window).scrollTop();
                         var bottom = (docHeight - scrollPos) / docHeight == 0;
                         if (bottom) {
-                            window.location.href = "shopping-local.ssp#search?show="+num;
+                            var fragment = Backbone.history.fragment;
+                            var toAppend = fragment.indexOf('?') == -1 ? '?' : '&';
+                            //var toUrl = fragment.indexOf('show') == -1 ? "shopping-local.ssp#" + Backbone.history.fragment + toAppend + 'show=' + num : 
+                            console.log('success');
+                            //window.location.href = "shopping-local.ssp#" + fragment + toAppend + 'show=' + num;
+                            //FacetsBrowseView.prototype.setEvent.apply(this, ['PageSize', num]);
+                            console.log("FacetsBrowseView.prototype.getPagination()", _.extend(FacetsBrowseView.prototype.getPagination()));
+
                         }
                     });
                 }
             }
-        })
+        });
     });
