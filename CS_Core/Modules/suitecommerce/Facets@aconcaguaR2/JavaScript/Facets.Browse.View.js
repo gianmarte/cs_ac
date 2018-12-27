@@ -123,8 +123,6 @@ define('Facets.Browse.View'
 				this.translator = this.setOptionsTranslator(options.translator);
 				this.application = options.application;
 
-				console.log("initialize this.translator", this.translator);
-
 				this.itemsDisplayOptions = Utils.deepCopy(options.application.getConfig('itemsDisplayOptions'));
 				this.resultsPerPage = Utils.deepCopy(options.application.getConfig('resultsPerPage'));
 				this.sortOptions = Utils.deepCopy(options.application.getConfig('sortOptions'));
@@ -144,7 +142,6 @@ define('Facets.Browse.View'
 			// @method getPagination Return the info of the current options in the PLP
 			// @return {Object}
 			, getPagination: function getPagination() {
-				console.log("getPagination this.translator", this.translator);
 				return {
 					currentPage: this.translator.getOptionValue('page')
 					, pageCount: this.totalPages

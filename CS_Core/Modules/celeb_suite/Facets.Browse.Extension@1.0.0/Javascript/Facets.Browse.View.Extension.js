@@ -9,13 +9,6 @@
 define('Facets.Browse.View.Extension'
     , [
         'Facets.Browse.View'
-        , 'Facets.Helper'
-        , 'Facets.Model'
-        , 'Categories'
-        , 'Categories.Model'
-        , 'AjaxRequestsKiller'
-        , 'Profile.Model'
-        , 'Tracker'
         , 'underscore'
         , 'jQuery'
         , 'Utils'
@@ -23,13 +16,6 @@ define('Facets.Browse.View.Extension'
     ]
     , function (
         FacetsBrowseView
-        , FacetsHelper
-        , FacetsModel
-        , Categories
-        , CategoriesModel
-        , AjaxRequestsKiller
-        , ProfileModel
-        , Tracker
         , _
         , jQuery
         , Utils
@@ -37,76 +23,42 @@ define('Facets.Browse.View.Extension'
         'use strict';
 
         _.extend(FacetsBrowseView.prototype, {
-            renderPlus: function(){
-
+            render: function () {
                 _.defer(_.bind(function () {
                     this.onReachBottomPage(this.model.get('items').length, this.model.get('total'));
                 }, this));
 
-                var list_type = 'Facets';
-
-				if (this.model.get('category')) {
-					list_type = 'Category';
-				}
-				else if (this.translator.getOptionValue('keywords')) {
-					list_type = 'Search';
-				}
-
-				Tracker.getInstance().trackProductList(this.model.get('items'), list_type);
-
-				this._render();
-            },
-            render: function () {
-                _.extend(FacetsBrowseView.prototype.render, this.renderPlus());
+                FacetsBrowseView.__super__.render.apply(this, arguments);
             },
             onReachBottomPage: function onReachPageBottom(count, total) {
-                var num = count+24 > 100 ? num = 100 : num = count + 24;
-                console.log('total', total);
-                console.log('count', count);
-                console.log('num', num);
-                console.log('num <= count + 24', num <= count + 24);
+                var num = count + 24 > 100 ? num = 100 : num = count + 24;
+                var self = this;
+                var frag = Backbone.history.fragment;
 
-                _.extend(FacetsBrowseView.prototype, Backbone.Events);
+                console.log("self.getPagination()", self.getPagination());
+                console.log("self.translator.getUrl()", self.translator.getUrl());
+                console.log("self.translator", self.options.translator);
+                console.log("Backbone.history.navigate", Backbone.history.navigate);
+                console.log("Utils", Utils);
+                console.log("frag", frag);
+                console.log("Utils.setUrlParameter(frag, 'show', num)", Utils.setUrlParameter(frag, 'show', num));
 
-                FacetsBrowseView.prototype.on("scroll", function(msg) {
-                    console.log("FacetsBrowseView.prototype", FacetsBrowseView.prototype );
-                });
+                jQuery(window).on("scroll", function (e) {
+                    var docHeight = jQuery(document).height();
+                    var scrollPos = jQuery(window).height() + jQuery(window).scrollTop();
+                    var bottom = (docHeight - scrollPos) / docHeight == 0;
 
-                FacetsBrowseView.prototype.trigger("scroll");
-
-                console.log("extend this.translator", this.translator);
-                console.log("extend FacetsBrowseView.prototype.translator", FacetsBrowseView.prototype.translator);
-
-                console.log("this.setEvent()", FacetsBrowseView.prototype.setEvent.apply(this, ['PageSize', num]));
-                var test = FacetsBrowseView.prototype.setEvent.apply(this, ['PageSize', num]);
-                
-                    jQuery(window).on("scroll", function () {
-                        var docHeight = jQuery(document).height();
-                        var scrollPos = jQuery(window).height() + jQuery(window).scrollTop();
-                        var bottom = (docHeight - scrollPos) / docHeight == 0;
-
-                        if (num <= 100) {    
-                            if (bottom) {
-                                /*var params = [];
-                                var fragment = Backbone.history.fragment;
-                                var vars = fragment.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-                                    params.push(value);
-                                });
-                                var s = 'show='+count;
-                                fragment = fragment.replace(s, '');
-                                console.log("remove dup", fragment.replace(s, ''));
-                                console.log("Backbone.history", Backbone.history);
-                                console.log("params",params);
-                                var toAppend = fragment.indexOf('?') == -1 ? '?' : '&';*/
-                                //var toUrl = fragment.indexOf('show') == -1 ? "shopping-local.ssp#" + Backbone.history.fragment + toAppend + 'show=' + num;
-                                //window.location.href = "shopping-local.ssp#" + fragment + toAppend + 'show=' + num;
-                                //FacetsBrowseView.prototype.setEvent.apply(this, ['PageSize', num]);
-                                test;
-                                console.log("test", test);
-                            }
+                    if (num <= 100) {
+                        if (bottom) {
+                            //self._setEvent({ event: e, eventName: 'PageSize', value: show, valueOriginal: original });
+                            //FacetsBrowseView.prototype._setEvent.apply(self, [{ event: e, eventName: 'PageSize', value: show, valueOriginal: original }]);
+                            //console.log(FacetsBrowseView.prototype._setEvent.apply(self, [{ event: e, eventName: 'PageSize', value: show, valueOriginal: original }]));
+                            //FacetsBrowseView.prototype.showContent();
+                            Backbone.history.navigate(Utils.setUrlParameter(frag, 'show', num), { trigger: true });
                         }
-                    });
+                    }
+                });
             }
         });
-        
+
     });
