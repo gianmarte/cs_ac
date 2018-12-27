@@ -35,43 +35,78 @@ define('Facets.Browse.View.Extension'
         , Utils
     ) {
         'use strict';
-        FacetsBrowseView.extend({
-            renderPlus: function () {
+
+        _.extend(FacetsBrowseView.prototype, {
+            renderPlus: function(){
+
                 _.defer(_.bind(function () {
                     this.onReachBottomPage(this.model.get('items').length, this.model.get('total'));
                 }, this));
 
-                this._render();
+                var list_type = 'Facets';
+
+				if (this.model.get('category')) {
+					list_type = 'Category';
+				}
+				else if (this.translator.getOptionValue('keywords')) {
+					list_type = 'Search';
+				}
+
+				Tracker.getInstance().trackProductList(this.model.get('items'), list_type);
+
+				this._render();
             },
             render: function () {
-                _.extend({}, FacetsBrowseView.prototype.render, this.renderPlus());
-                //FacetsBrowseView.prototype.render.apply(this, renderPlus());
+                _.extend(FacetsBrowseView.prototype.render, this.renderPlus());
             },
-            onReachBottomPage: function (count, total) {
-                var num = count + 24;
-                num = num <= 100 ? num : num = 100;
+            onReachBottomPage: function onReachPageBottom(count, total) {
+                var num = count+24 > 100 ? num = 100 : num = count + 24;
                 console.log('total', total);
                 console.log('count', count);
                 console.log('num', num);
                 console.log('num <= count + 24', num <= count + 24);
 
-                if (num < total && num <= 101) {
+                _.extend(FacetsBrowseView.prototype, Backbone.Events);
+
+                FacetsBrowseView.prototype.on("scroll", function(msg) {
+                    console.log("FacetsBrowseView.prototype", FacetsBrowseView.prototype );
+                });
+
+                FacetsBrowseView.prototype.trigger("scroll");
+
+                console.log("extend this.translator", this.translator);
+                console.log("extend FacetsBrowseView.prototype.translator", FacetsBrowseView.prototype.translator);
+
+                console.log("this.setEvent()", FacetsBrowseView.prototype.setEvent.apply(this, ['PageSize', num]));
+                var test = FacetsBrowseView.prototype.setEvent.apply(this, ['PageSize', num]);
+                
                     jQuery(window).on("scroll", function () {
                         var docHeight = jQuery(document).height();
                         var scrollPos = jQuery(window).height() + jQuery(window).scrollTop();
                         var bottom = (docHeight - scrollPos) / docHeight == 0;
-                        if (bottom) {
-                            var fragment = Backbone.history.fragment;
-                            var toAppend = fragment.indexOf('?') == -1 ? '?' : '&';
-                            //var toUrl = fragment.indexOf('show') == -1 ? "shopping-local.ssp#" + Backbone.history.fragment + toAppend + 'show=' + num : 
-                            console.log('success');
-                            //window.location.href = "shopping-local.ssp#" + fragment + toAppend + 'show=' + num;
-                            //FacetsBrowseView.prototype.setEvent.apply(this, ['PageSize', num]);
-                            console.log("FacetsBrowseView.prototype.getPagination()", _.extend(FacetsBrowseView.prototype.getPagination()));
 
+                        if (num <= 100) {    
+                            if (bottom) {
+                                /*var params = [];
+                                var fragment = Backbone.history.fragment;
+                                var vars = fragment.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+                                    params.push(value);
+                                });
+                                var s = 'show='+count;
+                                fragment = fragment.replace(s, '');
+                                console.log("remove dup", fragment.replace(s, ''));
+                                console.log("Backbone.history", Backbone.history);
+                                console.log("params",params);
+                                var toAppend = fragment.indexOf('?') == -1 ? '?' : '&';*/
+                                //var toUrl = fragment.indexOf('show') == -1 ? "shopping-local.ssp#" + Backbone.history.fragment + toAppend + 'show=' + num;
+                                //window.location.href = "shopping-local.ssp#" + fragment + toAppend + 'show=' + num;
+                                //FacetsBrowseView.prototype.setEvent.apply(this, ['PageSize', num]);
+                                test;
+                                console.log("test", test);
+                            }
                         }
                     });
-                }
             }
         });
+        
     });
