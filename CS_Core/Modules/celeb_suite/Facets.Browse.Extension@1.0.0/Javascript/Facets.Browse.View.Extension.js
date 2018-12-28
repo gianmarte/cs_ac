@@ -32,29 +32,34 @@ define('Facets.Browse.View.Extension'
             },
             onReachBottomPage: function onReachPageBottom(count, total) {
                 var num = count + 24 > 100 ? num = 100 : num = count + 24;
+                var docHeight = jQuery(document).height();
                 var self = this;
-                var frag = Backbone.history.fragment;
-
-                console.log("self.getPagination()", self.getPagination());
-                console.log("self.translator.getUrl()", self.translator.getUrl());
-                console.log("self.translator", self.options.translator);
-                console.log("Backbone.history.navigate", Backbone.history.navigate);
-                console.log("Utils", Utils);
-                console.log("frag", frag);
-                console.log("Utils.setUrlParameter(frag, 'show', num)", Utils.setUrlParameter(frag, 'show', num));
+                var test = [];
+                
+                console.log("bottom Page docheight", docHeight);
+                console.log("jQuery(window).height() + jQuery(window).scrollTop();", jQuery(window).height() + jQuery(window).scrollTop());
 
                 jQuery(window).on("scroll", function (e) {
-                    var docHeight = jQuery(document).height();
                     var scrollPos = jQuery(window).height() + jQuery(window).scrollTop();
                     var bottom = (docHeight - scrollPos) / docHeight == 0;
+                    var frag = Backbone.history.fragment;
 
-                    if (num <= 100) {
+                    if (num <= total) {
                         if (bottom) {
-                            //self._setEvent({ event: e, eventName: 'PageSize', value: show, valueOriginal: original });
-                            //FacetsBrowseView.prototype._setEvent.apply(self, [{ event: e, eventName: 'PageSize', value: show, valueOriginal: original }]);
-                            //console.log(FacetsBrowseView.prototype._setEvent.apply(self, [{ event: e, eventName: 'PageSize', value: show, valueOriginal: original }]));
-                            //FacetsBrowseView.prototype.showContent();
-                            Backbone.history.navigate(Utils.setUrlParameter(frag, 'show', num), { trigger: true });
+                            var url = Utils.setUrlParameter(frag, 'show', num);
+                            window.location.href = "shopping-local.ssp#"+url;
+                            //window.history.pushState(null, jQuery(self).attr('title'), "shopping-local.ssp#"+url);
+                            /*jQuery.ajax({
+                                url:"",
+                                data:"",
+                                success: function(){
+                                    window.location.href = "shopping-local.ssp#"+url
+                                }
+                            }).done(function() {
+                                console.log(window.history.scrollRestoration);
+                            });*/
+                            jQuery(window).scrollTop(scrollPos);
+                            test.push(docHeight);
                         }
                     }
                 });

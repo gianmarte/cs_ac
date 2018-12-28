@@ -462,6 +462,8 @@ define('Facets.Browse.View'
 
 				Tracker.getInstance().trackProductList(this.model.get('items'), list_type);
 
+				console.log(Tracker.getInstance().trackProductList(this.model.get('items'), list_type));
+
 				this._render();
 			}
 
