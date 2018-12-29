@@ -22,6 +22,8 @@ define('Facets.Browse.View.Extension'
     ) {
         'use strict';
 
+        var docHeightArr = [];
+
         _.extend(FacetsBrowseView.prototype, {
             render: function () {
                 _.defer(_.bind(function () {
@@ -34,20 +36,24 @@ define('Facets.Browse.View.Extension'
                 var num = count + 24 > 100 ? num = 100 : num = count + 24;
                 var docHeight = jQuery(document).height();
                 var self = this;
-                var test = [];
-                
-                console.log("bottom Page docheight", docHeight);
-                console.log("jQuery(window).height() + jQuery(window).scrollTop();", jQuery(window).height() + jQuery(window).scrollTop());
 
                 jQuery(window).on("scroll", function (e) {
                     var scrollPos = jQuery(window).height() + jQuery(window).scrollTop();
                     var bottom = (docHeight - scrollPos) / docHeight == 0;
-                    var frag = Backbone.history.fragment;
+                    //var frag = Backbone.history.fragment;
 
                     if (num <= total) {
                         if (bottom) {
-                            var url = Utils.setUrlParameter(frag, 'show', num);
-                            window.location.href = "shopping-local.ssp#"+url;
+                            var url = self.translator.cloneForOption('show', num).getUrl();
+                            docHeightArr.push(docHeight);
+                            console.log("docHeightArr", docHeightArr);
+
+                            return self.setEvent('PageSize', num).then(function ()
+							{
+                                Backbone.history.navigate(url, { trigger: true });
+							});
+                            //var url = Utils.setUrlParameter(frag, 'show', num);
+                            //window.location.href = "shopping-local.ssp#"+url;
                             //window.history.pushState(null, jQuery(self).attr('title'), "shopping-local.ssp#"+url);
                             /*jQuery.ajax({
                                 url:"",
@@ -58,8 +64,8 @@ define('Facets.Browse.View.Extension'
                             }).done(function() {
                                 console.log(window.history.scrollRestoration);
                             });*/
-                            jQuery(window).scrollTop(scrollPos);
-                            test.push(docHeight);
+                            /*jQuery(window).scrollTop(scrollPos);
+                            test.push(docHeight);*/
                         }
                     }
                 });
