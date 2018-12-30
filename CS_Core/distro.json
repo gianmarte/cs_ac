@@ -16,6 +16,7 @@
         "celeb_suite/ItemsSearcherSingleResult": "1.0.0",
         "celeb_suite/SiteSearchSingleResult": "1.0.0",
         "celeb_suite/ZendeskChat": "1.0.0",
+        "celeb_suite/ProductReviewList": "1.0.0",
         "suitecommerce/Account": "aconcaguaR2",
         "suitecommerce/Address": "aconcaguaR2",
         "suitecommerce/AjaxRequestsKiller": "aconcaguaR2",
@@ -319,6 +320,7 @@
                 "entryPoint": "SC.MyAccount.Starter",
                 "exportFile": "myaccount.js",
                 "dependencies": [
+                    "ProductReviewList",
                     "SC.Environment.Component",
                     "Backbone.View.Plugins",
                     "Location",

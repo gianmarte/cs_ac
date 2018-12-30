@@ -136,6 +136,7 @@ define('OrderHistory.List.View'
 	,	setLoading: function (value)
 		{
 			this.isLoading = value;
+			console.log('value', value);
 		}
 		//@property {Array} sortOptions
 		// Array of default sort options

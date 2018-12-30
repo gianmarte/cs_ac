@@ -6,7 +6,7 @@
 */
 
 //@module Address
-define(
+/*define(
 	'Address.Details.View'
 ,	[	'address_details.tpl'
 
@@ -130,4 +130,4 @@ define(
 			};
 		}
 	});
-});
+});*/

@@ -5,12 +5,13 @@
 	may use this code subject to the terms that govern your access and use.
 */
 //KODELLA
-// @module Facets
+// @module FacetsBrowseView
 define('Facets.Browse.View.Extension'
     , [
         'Facets.Browse.View'
         , 'underscore'
         , 'jQuery'
+        , 'UrlHelper'
         , 'Utils'
 
     ]
@@ -36,17 +37,34 @@ define('Facets.Browse.View.Extension'
                 var num = count + 24 > 100 ? num = 100 : num = count + 24;
                 var docHeight = jQuery(document).height();
                 var self = this;
+                var pages = self.getPagination();
+                var heightIndex = docHeightArr.length > 1 ? heightIndex = docHeightArr.length-2 : heightIndex = docHeightArr.length-1;
+                
+
+                console.log('docHeightArr', docHeightArr.length);
+
+                window.history.scrollRestoration = 'manual';
+                console.log('window.history', window.history);
+
+                /* if(docHeightArr.length > 1){
+                    window.scrollTo({
+                        top: docHeightArr[heightIndex],
+                        left: 0,
+                        behavior: 'smooth'    
+                    });
+                }*/
+                
 
                 jQuery(window).on("scroll", function (e) {
                     var scrollPos = jQuery(window).height() + jQuery(window).scrollTop();
                     var bottom = (docHeight - scrollPos) / docHeight == 0;
+                    
                     //var frag = Backbone.history.fragment;
 
-                    if (num <= total) {
+                    if (num < total && pages.currentPage != pages.pageCount) {
                         if (bottom) {
+                            //docHeightArr.push(docHeight);
                             var url = self.translator.cloneForOption('show', num).getUrl();
-                            docHeightArr.push(docHeight);
-                            console.log("docHeightArr", docHeightArr);
 
                             return self.setEvent('PageSize', num).then(function ()
 							{
