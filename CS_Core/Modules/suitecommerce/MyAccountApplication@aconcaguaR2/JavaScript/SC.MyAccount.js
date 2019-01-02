@@ -70,7 +70,6 @@ define(
 		var menu_tree = MenuTreeView.getInstance();
 		menu_tree.application = MyAccount;
 
-		console.log("MyAccount.modules", MyAccount.modules);
 		_.each(MyAccount.modules, function (module)
 		{
 			if (module)

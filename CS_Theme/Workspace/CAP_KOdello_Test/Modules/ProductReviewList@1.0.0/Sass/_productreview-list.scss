@@ -1,0 +1,19 @@
+.review-list {
+}
+
+.product-review-list-header {
+    border-top: 1px solid $sc-color-theme-border-light;
+    padding: $sc-padding-lv3 0;
+    border-bottom: 1px solid $sc-color-theme-border-light;
+}
+
+.review-list-button-back {
+    @extend .button-back;
+}
+.review-list-button-back-icon {
+    @extend .button-back-icon;
+}
+.product-review-list-empty-section {
+	padding:$sc-padding-lv8 $sc-padding-lv3 $sc-padding-lv3 $sc-padding-lv3;
+ 	text-align:center;
+}

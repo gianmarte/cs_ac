@@ -283,6 +283,9 @@ define('ProductReviews.Center.View'
 		//@returns {ProductReviews.Center.View.Context}
 	,	getContext: function ()
 		{
+
+			console.log("this.collection", this.collection);
+			console.log("this.item", this.item);
 			//@class ProductReviews.Center.View.Context
 			return {
 				//@property {Number} itemCount

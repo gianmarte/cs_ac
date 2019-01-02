@@ -91,20 +91,17 @@ define(
 			,	href: '/reviewlist'
 			};
 		}
-	,	removeAddressModel: function (options)
-		{
-			options.context.collection.get(options.addressId).destroy({ wait: true });
-		}
-
 		//@method getContext @return {Address.List.View.Context}
 	,	getContext: function ()
 		{
+			console.log("this.collection.length > 0", this.collection.length > 0);
+			console.log("this.collection.length", this.collection.length);
 			//@class Address.List.View.Context
 			return {
 				//@property {String} pageHeader
 				pageHeader: this.page_header
-				//@property {Boolean} isAddressCollectionLengthGreaterThan0
-			,	isAddressCollectionLengthGreaterThan0: this.collection.length > 0
+				//@property {Boolean} hasProductReviewed
+			,	hasProductReviewed: this.collection.length > 0
 				//@property {Boolean} showBackToAccount
 			,	showBackToAccount: Configuration.get('siteSettings.sitetype') === 'STANDARD'
 			};

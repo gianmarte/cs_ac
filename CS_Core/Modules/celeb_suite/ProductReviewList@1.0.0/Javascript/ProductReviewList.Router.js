@@ -7,7 +7,7 @@
 define('ProductReviewList.Router'
 ,	[
 		'ProductReviews.Model'
-	,	'ProductReviews.Collection'
+	,	'ProductReviewList.Collection'
     ,	'ProductReview.List.View'
     ,	'ProductReview.Detail.View'
     ,   'Profile.Model'
@@ -54,6 +54,8 @@ define('ProductReviewList.Router'
                 collection: reviewCollection,
                 application: this.application
             });
+
+            console.log("reviewCollection",reviewCollection);
             
             listview.showContent();
         }
