@@ -1,0 +1,69 @@
+{
+    "name": "ProductReviewList",
+    "fantasyName": "Product Review List",
+    "vendor": "Kodella",
+    "version": "1.0.1",
+    "type": "extension",
+    "target": "SCA",
+    "description": "Lists all product reviews by logged in user",
+    "skins": [],
+    "assets": {
+        "img": {
+            "files": []
+        },
+        "fonts": {
+            "files": []
+        },
+        "services": {
+            "files": [
+                "services/ProductReviewList.Service.ss"
+            ]
+        }
+    },
+    "sass": {
+        "entry_points": {
+            "myaccount": "Modules/ProductReviewList/Sass/_productreviewlist-productreviewlist.scss"
+        },
+        "files": [
+            "Modules/ProductReviewList/Sass/_productreview-list.scss",
+            "Modules/ProductReviewList/Sass/_productreviewlist-productreviewlist.scss",
+            "Modules/ProductReviewList/Sass/_productreviewlist.scss"
+        ]
+    },
+    "templates": {
+        "application": {
+            "myaccount": {
+                "files": [
+                    "Modules/ProductReviewList/Templates/productreview_list.tpl",
+                    "Modules/ProductReviewList/Templates/kodella_productreviewlist_productreviewlist_edit.tpl"
+                ]
+            }
+        }
+    },
+    "javascript": {
+        "entry_points": {
+            "myaccount": "Modules/ProductReviewList/JavaScript/Kodella.ProductReviewList.ProductReviewList.js"
+        },
+        "application": {
+            "myaccount": {
+                "files": [
+                    "Modules/ProductReviewList/JavaScript/Kodella.ProductReviewList.ProductReviewList.js",
+                    "Modules/ProductReviewList/JavaScript/ProductReviewList.Router.js",
+                    "Modules/ProductReviewList/JavaScript/ProductReviewList.List.View.js",
+                    "Modules/ProductReviewList/JavaScript/ProductReviewList.Detail.View.js",
+                    "Modules/ProductReviewList/JavaScript/ProductReviewList.Collection.js",
+                    "Modules/ProductReviewList/JavaScript/ProductReviewList.Model.js"
+                ]
+            }
+        }
+    },
+    "ssp-libraries": {
+        "entry_point": "Modules/ProductReviewList/SuiteScript/Kodella.ProductReviewList.ProductReviewList.js",
+        "files": [
+            "Modules/ProductReviewList/SuiteScript/Kodella.ProductReviewList.ProductReviewList.js",
+            "Modules/ProductReviewList/SuiteScript/ProductReviewList.ServiceController.js",
+            "Modules/ProductReviewList/SuiteScript/ProductReviewList.Model.js"
+        ]
+    },
+    "local_folder": "Workspace\\ProductReviewList"
+}

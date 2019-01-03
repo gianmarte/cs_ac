@@ -29,9 +29,13 @@
         "deploy": "DeployDistribution",
         "extensions_dest_name": "Deploy_Extensions",
         "extmech_parent": "-15",
-        "extensions_path": [],
-        "theme_path": "Workspace/Extras/CAP_Kodella_Demo",
-        "overrides_path": "Workspace/Extras/CAP_Kodella_Demo/Overrides"
+        "extensions_path": [
+            "Workspace/InfiniteScrolling",
+            "Workspace/ProductReviewList"
+        ],
+        "theme_path": "Workspace/Extras/CAP_Kodello_Test",
+        "overrides_path": "Workspace/Extras/CAP_Kodello_Test/Overrides",
+        "extensions_dest": "3160"
     },
     "application": {},
     "script": {

@@ -6,7 +6,7 @@
 // Handles the rendering of the different views depending on the URL route
 define('ProductReviewList.Router'
 ,	[
-		'ProductReviews.Model'
+		'ProductReview.List.Model'
 	,	'ProductReviewList.Collection'
     ,	'ProductReview.List.View'
     ,	'ProductReview.Detail.View'
@@ -56,10 +56,12 @@ define('ProductReviewList.Router'
             });
 
             console.log("reviewCollection",reviewCollection);
-            
-            listview.showContent();
+
+            reviewCollection.fetch().done(function() {
+                listview.showContent();
+            });
         }
-    ,   ProductReviewedDetails: function(id){
+    ,   ProductReviewedDetails: function(){
             
         }
     });

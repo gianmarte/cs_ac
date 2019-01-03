@@ -5,9 +5,9 @@
         "role": 3,
         "hostname": "rest.netsuite.com",
         "website": "7",
-        "domain": "nscap.kodel.la",
-        "webapp_id": "15403",
-        "target_folder": "15403",
+        "domain": "nscaptest.kodel.la",
+        "webapp_id": "20303",
+        "target_folder": "20303",
         "roleId": 3
     }
 }

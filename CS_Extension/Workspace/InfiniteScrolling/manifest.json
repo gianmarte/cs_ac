@@ -1,0 +1,35 @@
+{
+    "name": "InfiniteScrolling",
+    "fantasyName": "Infinite Scrolling",
+    "vendor": "Kodella",
+    "version": "1.0.0",
+    "type": "extension",
+    "target": "SCA",
+    "description": "Loads more items once bottom page is reached",
+    "skins": [],
+    "assets": {
+        "img": {
+            "files": []
+        },
+        "fonts": {
+            "files": []
+        },
+        "services": {
+            "files": []
+        }
+    },
+    "javascript": {
+        "entry_points": {
+            "shopping": "Modules/InfiniteScrolling/JavaScript/Kodella.InfiniteScrolling.InfiniteScrolling.js"
+        },
+        "application": {
+            "shopping": {
+                "files": [
+                    "Modules/InfiniteScrolling/JavaScript/Kodella.InfiniteScrolling.InfiniteScrolling.js",
+                    "Modules/InfiniteScrolling/JavaScript/InfiniteScrolling.View.js"
+                ]
+            }
+        }
+    },
+    "local_folder": "Workspace\\InfiniteScrolling"
+}

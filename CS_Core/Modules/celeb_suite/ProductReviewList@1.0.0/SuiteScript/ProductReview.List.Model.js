@@ -31,33 +31,41 @@ define(
 
             if(ModelsInit.session.isLoggedIn2()){
 
+                // define which fields we want returned
+                var custId = ModelsInit.customer.getFieldValues(['internalid']);
+
                 var filters = [
-                    new nlobjSearchFilter('internalid', null, 'anyof', custId)
-                ,   new nlobjSearchFilter('id', 'custrecord_ns_prr_writer', 'isnotempty') 
-                ];
+                    new nlobjSearchFilter('custrecord_ns_prr_writer', null, 'anyof', custId.internalid)  
+                ];                
 
                 var columns = [
-                    new nlobjSearchColumn('internalid', 'CUSTRECORD_NS_PRR_WRITER')
-                ,   new nlobjSearchColumn('created', 'CUSTRECORD_NS_PRR_WRITER')
-                ,   new nlobjSearchColumn('name', 'CUSTRECORD_NS_PRR_WRITER')
-                ,   new nlobjSearchColumn('custrecord_ns_prr_writer', 'CUSTRECORD_NS_PRR_WRITER')
-                ,   new nlobjSearchColumn('custrecord_ns_prr_rating', 'CUSTRECORD_NS_PRR_WRITER')
-                ,   new nlobjSearchColumn('custrecord_ns_prr_text', 'CUSTRECORD_NS_PRR_WRITER')
-                ,   new nlobjSearchColumn('custrecord_ns_prr_item_id', 'CUSTRECORD_NS_PRR_WRITER')
+                    new nlobjSearchColumn('internalid')
+                ,   new nlobjSearchColumn('custrecord_ns_prr_rating')
+                ,   new nlobjSearchColumn('custrecord_ns_prr_text')
+                ,   new nlobjSearchColumn('custrecord_ns_prr_item_id')
+                ,   new nlobjSearchColumn('created')
+                ,   new nlobjSearchColumn('name')
+                ,   new nlobjSearchColumn('custrecord_ns_prr_writer')
                 ];
 
-                Application.getAllSearchResults('customer', filters, columns).forEach(function (reviewList){
-                    productReviews.internalid = reviewList.getValue('internalid', 'CUSTRECORD_NS_PRR_WRITER');
-                    productReviews.createDate = reviewList.getValue('created', 'CUSTRECORD_NS_PRR_WRITER');
-                    productReviews.reviewTitle = reviewList.getValue('name', 'CUSTRECORD_NS_PRR_WRITER');
-                    productReviews.writer = reviewList.getValue('custrecord_ns_prr_writer', 'CUSTRECORD_NS_PRR_WRITER');
-                    productReviews.rating = reviewList.getValue('custrecord_ns_prr_rating', 'CUSTRECORD_NS_PRR_WRITER');
-                    productReviews.reviewText = reviewList.getValue('custrecord_ns_prr_text', 'CUSTRECORD_NS_PRR_WRITER');
-                    productReviews.itemId = reviewList.getValue('custrecord_ns_prr_item_id', 'CUSTRECORD_NS_PRR_WRITER');
+                // define record type to be searched
+                var search = nlapiSearchRecord('customrecord_ns_pr_review', null, filters, columns);
+
+                // if you need to, log it so that you can see it
+                // var log1 = nlapiLogExecution('DEBUG', 'search', JSON.stringify(search));
+
+                return _.map(search, function(result) {
+                    return {
+                        reviewid: result.getValue('internalid')
+                    ,   rating: result.getValue('custrecord_ns_prr_rating')
+                    ,   text: result.getValue('custrecord_ns_prr_text')
+                    ,   itemid: result.getValue('custrecord_ns_prr_item_id')
+                    ,   created: result.getValue('created')
+                    ,   reviewTitle: result.getValue('name')
+                    ,   writer: result.getValue('custrecord_ns_prr_writer')
+                    }
                 });
             }
-
-            return productReviews;
         }
     });
 });

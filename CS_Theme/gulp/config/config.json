@@ -22,8 +22,8 @@
         "deploy": "DeployDistribution",
         "extensions_dest_name": "Deploy_Extensions",
         "extmech_parent": "-15",
-        "theme_path": "Workspace/CAP_Kodella_Demo",
-        "overrides_path": "Workspace/CAP_Kodella_Demo/Overrides",
+        "theme_path": "Workspace/CAP_Kodello_Test",
+        "overrides_path": "Workspace/CAP_Kodello_Test/Overrides",
         "extensions_dest": "3160"
     },
     "application": {},

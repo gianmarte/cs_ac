@@ -1,0 +1,29 @@
+{
+  "generator-extension": {
+    "promptValues": {
+      "vendor": "Kodella",
+      "target": [
+        "SCA"
+      ]
+    },
+    "ext_application": {
+      "ItemSearcherSingleResult": [
+        "shopping",
+        "myaccount"
+      ],
+      "SiteSearchSingleResult": [
+        "shopping",
+        "myaccount"
+      ],
+      "InfiniteScrolling": [
+        "shopping"
+      ],
+      "ProductReviewList": [
+        "myaccount"
+      ],
+      "TestExtension": [
+        "myaccount"
+      ]
+    }
+  }
+}

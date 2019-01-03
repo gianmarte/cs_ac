@@ -27,8 +27,7 @@ define(
         }
     ,   get: function()
         {
-            var custID = ModelsInit.customer.getFieldValue('internalid');
-            return ProductReviewListModel.get(custID);
+            return ProductReviewListModel.get();
         }   
     });
 });

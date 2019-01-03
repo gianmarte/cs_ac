@@ -2,129 +2,53 @@
 	Kodella Module
 */
 
-//@module Address
-/*define(
-	'Address.Details.View'
-,	[	'productreview_details.tpl'
-
-	,	'SC.Configuration'
-	,	'Backbone'
-	,	'underscore'
-	,	'Utils'
-	]
-,	function (
-		address_tpl
-
-	,	Configuration
-	,	Backbone
-	,	_
-	)
+define('Productreview.Detail.View'
+, [
+    'Backbone'
+  , 'Backbone.CompositeView'
+  , 'GlobalViews.StarRating.View'
+  //, 'productreview_details.tpl'
+  ]
+, function
+  (
+    Backbone
+  , BackboneCompositeView
+  , GlobalViewsStarRatingView
+  //, productreview_details_tpl
+  )
 {
-	'use strict';
+  return Backbone.View.extend ({
+    //template: productreview_details_tpl
 
-	//@class Address.View @extend Backbone.View
-	return Backbone.View.extend({
+  initialize: function initialize() {
+      // turns this into a composite view, which we need to do if we're going to add in the star rating view
+      BackboneCompositeView.add(this);
+    }
 
-		//@property {Function} template
-		template: address_tpl
+  , childViews: {
+      'StarRating': function() {
+        return new GlobalViewsStarRatingView({
+          model: this.model
+        , showRatingCount: false
+        });
+      }
+    }
 
-		//@property {Object} attributes
-	,	attributes: {'class': 'AddressDetailsView'}
+  , getContext: function()
+    {
+      // return a product image, it doesn't matter which one (so just get the first)
+      /*var images = this.model.get('itemimages_detail')
+      , firstImageUrl = images.media[Object.keys(images.media)[0]].urls["0"].url;*/
 
-		//@method initialize Attach to any change on the model and make a render on this changes
-		//@return {Void}
-	,	initialize: function ()
-		{
-			this.model.on('sync', _.bind(this.render, this));
-		}
-
-	,	destroy: function destroy ()
-		{
-			this.model.off('sync');
-			return this._destroy();
-		}
-
-		//@method getContext @return Address.View.Context
-	,	getContext: function ()
-		{
-			var label = this.model.get('label')
-			,	company = (Configuration.get('siteSettings.registration.displaycompanyfield') === 'T') ? this.model.get('company') : null
-			,	fullname = this.model.get('fullname')
-
-			,	countries = Configuration.get('siteSettings.countries', [])
-			,	country_object = countries[this.model.get('country')]
-			,	country = (country_object) ? country_object.name : this.model.get('country')
-			,	state_object = (country_object && country_object.states) ? _.findWhere(countries[this.model.get('country')].states, {code: this.model.get('state')}): null
-			,	state = (state_object) ? state_object.name : this.model.get('state')
-			,	invalidAttributes = this.model.getInvalidAttributes() || [];
-
-			//@class Address.View.Context
-			return {
-				//@property {Address.Model} model
-				model: this.model
-				//@property {String} internalid
-			,	internalid: this.model.get('internalid')
-				//@property {Boolean} isManageOptionsSpecified
-			,	isManageOptionsSpecified: !!this.options.manage
-				//@property {String} manageOption
-			,	manageOption: this.options.manage
-				//@property {Boolean} showMultiSelect
-			,	showMultiSelect: this.options.showMultiSelect
-				//@property {Boolean} isAddressCheck
-			,	isAddressCheck: !!this.model.get('check')
-				//@property {String} title
-			,	title: label || company || fullname
-				//@property {Boolean} showCompanyAndFullName
-			,	showCompanyAndFullName: !!(label && company)
-				//@property {String} company
-			,	company: company
-				//@property {String} fullname
-			,	fullname: fullname
-				//@property {Boolean} showFullNameOnly
-			,	showFullNameOnly: !!(label ? !company : company)
-				//@property {String} addressLine1
-			,	addressLine1: this.model.get('addr1')
-				//@property {Boolean} showAddressLine1
-			,	showAddressLine1: !!this.model.get('addr2')
-				//@property {String} addressLine2
-			,	addressLine2: this.model.get('addr2')
-				//@property {String} city
-			,	city: this.model.get('city')
-				//@property {Boolean} showState
-			,	showState: !!this.model.get('state')
-				//@property {String} state
-			,	state: state
-				//@property {String} zip
-			,	zip: this.model.get('zip')
-				//@property {String} country
-			,	country: country
-				//@property {String} phone
-			,	phone: this.model.get('phone')
-				//@property {Boolean} showDefaultLabels
-			,	showDefaultLabels: !this.options.hideDefaults
-				//@property {Boolean} isDefaultShippingAddress
-			,	isDefaultShippingAddress: this.model.get('defaultshipping') === 'T'
-				//@property {Boolean} isDefaultBillingAddress
-			,	isDefaultBillingAddress: this.model.get('defaultbilling') === 'T'
-				//@property {Boolean} showSelectionButton
-			,	showSelectionButton: !!this.options.showSelect
-				//@property {Boolean} isASelectMessageSpecified
-			,	isASelectMessageSpecified: !!this.options.selectMessage
-				//@property {String} selectMessage
-			,	selectMessage: this.options.selectMessage
-				//@property {Boolean} showActionButtons
-			,	showActionButtons: !this.options.hideActions
-				//@property {Boolean} showChangeButton
-			,	showChangeButton: !!this.options.showChangeButton
-				//@property {Boolean} showRemoveButton
-			,	showRemoveButton: !this.options.hideRemoveButton
-				//@property {Boolean} showError
-			,	showError: this.options.showError && this.model.get('isvalid') && this.model.get('isvalid') !== 'T' && invalidAttributes.length
-				//@property {Array<Object>} invalidAttributes
-			,	invalidAttributes: invalidAttributes
-				//@property {Boolean} isInvalidAddressToRemove
-			,	isInvalidAddressToRemove: !!(this.options.disableRemoveButton && this.options.disableRemoveButton(this.model.get('internalid')))
-			};
-		}
-	});
-});*/
+    	return {
+    		reviewid: this.model.get('reviewid')
+      	,	rating: this.model.get('rating')
+      	,	text: this.model.get('text')
+      	,	itemid: this.model.get('itemid')
+      	,	created: this.model.get('created')
+		,	reviewTitle: this.model.get('reviewTitle')
+		,	writer: this.model.get('writer')  
+    	}
+    }
+  })
+});
