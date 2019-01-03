@@ -1,0 +1,70 @@
+{
+	"name": "ProductReviewList",
+	"fantasyName": "Product Review List",
+	"vendor": "Kodella",
+	"type": "extension",
+	"target": "SCA",
+	"version": "1.0.1",
+	"description": "Lists all product reviews by logged in user",
+	"assets": {
+		"img": {
+			"files": []
+		},
+		"fonts": {
+			"files": []
+		},
+		"services": {
+			"files": [
+				"services/ProductReviewList.Service.ss"
+			]
+		}
+	},
+	"templates": {
+		"application": {
+			"myaccount": {
+				"files": [
+					"Modules/ProductReviewList/Templates/productreview_list.tpl",
+					"Modules/ProductReviewList/Templates/kodella_productreviewlist_productreviewlist_edit.tpl"
+				]
+			}
+		}
+	},
+	"sass": {
+		"entry_points": {
+			"myaccount": "Modules/ProductReviewList/Sass/_productreviewlist-productreviewlist.scss"
+		},
+		"files": [
+			"Modules/ProductReviewList/Sass/_productreview-list.scss",
+			"Modules/ProductReviewList/Sass/_productreviewlist-productreviewlist.scss",
+			"Modules/ProductReviewList/Sass/_productreviewlist.scss"
+		]
+	},
+	"javascript": {
+		"entry_points": {
+			"myaccount": "Modules/ProductReviewList/JavaScript/Kodella.ProductReviewList.ProductReviewList.js"
+		},
+		"application": {
+			"myaccount": {
+				"files": [
+					"Modules/ProductReviewList/JavaScript/Kodella.ProductReviewList.ProductReviewList.js",
+					"Modules/ProductReviewList/JavaScript/ProductReviewList.Router.js",
+					"Modules/ProductReviewList/JavaScript/ProductReviewList.List.View.js",
+					"Modules/ProductReviewList/JavaScript/ProductReviewList.Detail.View.js",
+					"Modules/ProductReviewList/JavaScript/ProductReviewList.Collection.js",
+					"Modules/ProductReviewList/JavaScript/ProductReviewList.Model.js"
+				]
+			}
+		}
+	},
+	"ssp-libraries": {
+		"entry_point": "Modules/ProductReviewList/SuiteScript/Kodella.ProductReviewList.ProductReviewList.js",
+		"files": [
+			"Modules/ProductReviewList/SuiteScript/Kodella.ProductReviewList.ProductReviewList.js",
+			"Modules/ProductReviewList/SuiteScript/ProductReviewList.ServiceController.js",
+			"Modules/ProductReviewList/SuiteScript/ProductReviewList.Model.js"
+		]
+	},
+	"path": "SuiteScripts/Deploy_Extensions/Kodella/ProductReviewList@1.0.1",
+	"extension_id": "801",
+	"activation_id": "6"
+}
