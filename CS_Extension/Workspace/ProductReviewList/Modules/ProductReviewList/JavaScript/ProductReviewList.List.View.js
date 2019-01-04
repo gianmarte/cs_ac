@@ -9,11 +9,10 @@ define(
 	,	'Backbone.CollectionView'
 	,	'SC.Configuration'
 	//,	'ProductReviewList.Detail.View'
-	,	'GlobalViews.Confirmation.View'
+	,	'GlobalViews.StarRating.View'
+	,	'RecordViews.View'
 
 	,	'productreview_list.tpl'
-	,	'backbone_collection_view_cell.tpl'
-	,	'backbone_collection_view_row.tpl'
 
 	,	'Backbone'
 	,	'underscore'
@@ -25,11 +24,10 @@ define(
 	,	BackboneCollectionView
 	,	Configuration
 	//,	ReviewDetailsView
-	,	GlobalViewsConfirmationView
+	,	GlobalViewsStarRatingView
+	,	RecordViewsView
 
 	,	productreview_list_tpl
-	,	backbone_collection_view_cell_tpl
-	,	backbone_collection_view_row_tpl
 
 	,	Backbone
 	,	_
@@ -43,15 +41,11 @@ define(
 
 		template: productreview_list_tpl
 
-	,	page_header: _('All Product Reviews').translate()
+	,	page_header: _('My Reviews').translate()
 
-	,	title: _('My Prodcut Reviews').translate()
+	,	title: _('My Reviews').translate()
 
 	,	attributes: { 'class': 'ProductReviewListView' }
-
-	,	events: {
-			'click [data-action="remove"]': 'removeAddress'
-		}
 
 	,	initialize: function ()
 		{
@@ -59,7 +53,6 @@ define(
 			var self = this;
 			this.collection.on('reset sync add remove change destroy', function ()
 			{
-				self.collection.sort();
 				self.render();
 			});
 		}
@@ -67,13 +60,41 @@ define(
 	,	childViews: {
 			'ProductReviews.Collection': function ()
 			{
+				var reviews_collection = new Backbone.Collection(this.collection.map(function (reviews)
+				{
+					return new Backbone.Model({
+						touchpoint: 'customercenter'
+					,	title: _('$(0)').translate(reviews.get('reviewid'))
+					,	detailsURL: '#/reviewlist/' + reviews.get('reviewid')
+					,	internalid: reviews.get('reviewid')
+					,	columns: [
+							{
+								label: _('Review Title').translate()
+							,	type: 'review-title'
+							,	name: 'review-title'
+							,	value: reviews.get('reviewTitle')
+							}
+						,	{
+								label: _('Rating').translate()
+							,	type: 'rating'
+							,	name: 'rating'
+							,	value: reviews.get('rating')
+							}
+						,	{
+								label: _('Review Date').translate()
+							,	type: 'review-date'
+							,	name: 'review-title'
+							,	value: reviews.get('created')
+							}
+						]
+					});
+				}));
+
 				return new BackboneCollectionView(
 				{
-					childView: ReviewDetailsView
-				,	collection: this.collection
-				,	viewsPerRow: Configuration.get('itemsPerRow', 2)
-				,	cellTemplate: backbone_collection_view_cell_tpl
-				,	rowTemplate: backbone_collection_view_row_tpl
+					childView: RecordViewsView
+				,	collection: reviews_collection
+				,	viewsPerRow: 1
 				});
 			}
 		}
@@ -91,12 +112,10 @@ define(
 			,	href: '/reviewlist'
 			};
 		}
-		//@method getContext @return {Address.List.View.Context}
+		//@method getContext @return {ProductReviewList.List.View.Context}
 	,	getContext: function ()
 		{
-			console.log("this.collection.length > 0", this.collection.length > 0);
-			console.log("this.collection.length", this.collection.length);
-			//@class Address.List.View.Context
+			//@class ProductReviewList.List.View.Context
 			return {
 				//@property {String} pageHeader
 				pageHeader: this.page_header
@@ -104,7 +123,7 @@ define(
 			,	hasProductReviewed: this.collection.length > 0
 				//@property {Boolean} showBackToAccount
 			,	showBackToAccount: Configuration.get('siteSettings.sitetype') === 'STANDARD'
-			};
+			}
 		}
 	});
 });

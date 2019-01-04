@@ -31,45 +31,17 @@ define('Kodella.ProductReviewList.ProductReviewList.Detail.View'
 			this.options = options;
 			this.model = options.model;
 			this.list = options.collection;
-			this.mode = options.mode;
-			this.can_edit = options.can_edit;
 
 			BackboneFormView.add(this);
 
 			this.model.on('change', function()
 			{
-				if(self.mode === 'add')
-				{
-					self.list.add(self.model);
-				}
-				else
-				{
-					self.mode = 'list';
-					self.render();
-				}
-				
+				self.render();
 			});
-		}
-
-	,	events: {
-			'click [data-action="edit"]': 'editMode'
-		,	'change [name="completed"]': 'markCompleted'
-		,	'submit form': 'saveForm'
-		}
-
-	,	bindings: {
-			'[name="title"]': 'title'
-		,	'[name="completed"]': 'completed'
 		}
 
 	, 	childViews: {
 			
-		}
-
-	,	editMode: function editMode()
-		{
-			this.mode = 'edit';
-			this.render();
 		}
 
 	,	markCompleted: function markCompleted(e)

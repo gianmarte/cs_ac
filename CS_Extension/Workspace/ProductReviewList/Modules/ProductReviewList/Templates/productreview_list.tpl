@@ -11,12 +11,25 @@
 	</header>
 
 	{{#if hasProductReviewed}}
-	<div class="order-history-list-recordviews-container">
 		<table class="order-history-list-recordviews-actionable-table">
+			<thead class="order-history-list-recordviews-actionable-header">
+				<tr>
+					<th class="order-history-list-recordviews-actionable-title-header">
+						<span>{{translate 'Review ID'}}</span>
+					</th>
+					<th class="order-history-list-recordviews-actionable-date-header">
+						<span>{{translate 'Review Title'}}</span>
+					</th>
+					<th class="order-history-list-recordviews-actionable-currency-header">
+						<span>{{translate 'Rating'}}</span>
+					</th>
+					<th class="order-history-list-recordviews-actionable-actions-header">
+						<span>{{translate 'Review Date'}}</span>
+					</th>
+				</tr>
+			</thead>
 			<tbody class="order-history-list" data-view="ProductReviews.Collection"></tbody>
-		</table>
-	</div>
-
+		</table>	
 	{{else}}
 		<div class="order-history-list-empty-section">
 			<h5>{{translate 'You have not reviewed any products yet'}}</h5>

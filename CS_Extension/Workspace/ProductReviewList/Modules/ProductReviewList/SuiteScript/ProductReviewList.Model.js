@@ -25,7 +25,7 @@ define(
         name: 'ProductReviewList'
         
         //retrieve all product reviews by the logged in user
-    ,   get: function()
+    ,   list: function()
         {
 
             if(ModelsInit.session.isLoggedIn2()){
@@ -57,6 +57,39 @@ define(
                     return {
                         reviewid: result.getValue('internalid')
                     ,   rating: result.getValue('custrecord_ns_prr_rating')
+                    ,   text: result.getValue('custrecord_ns_prr_text')
+                    ,   itemid: result.getValue('custrecord_ns_prr_item_id')
+                    ,   created: result.getValue('created')
+                    ,   reviewTitle: result.getValue('name')
+                    ,   writer: result.getValue('custrecord_ns_prr_writer')
+                    }
+                });
+            }
+        }
+    ,   get: function(id)
+        {
+            if(ModelsInit.session.isLoggedIn2())
+            {
+                //define which product review record to return
+                var filters = [
+                    new nlobjSearchFilter('internalid', null, 'anyof', id)
+                ];
+
+                var columns = [
+                    ,   new nlobjSearchColumn('custrecord_ns_prr_rating')
+                    ,   new nlobjSearchColumn('custrecord_ns_prr_text')
+                    ,   new nlobjSearchColumn('custrecord_ns_prr_item_id')
+                    ,   new nlobjSearchColumn('created')
+                    ,   new nlobjSearchColumn('name')
+                    ,   new nlobjSearchColumn('custrecord_ns_prr_writer')                    
+                ];
+
+                // define record type to be searched
+                var search = nlapiSearchRecord('customrecord_ns_pr_review', null, filters, columns);
+
+                return _.map(search, function(result) {
+                    return {
+                        rating: result.getValue('custrecord_ns_prr_rating')
                     ,   text: result.getValue('custrecord_ns_prr_text')
                     ,   itemid: result.getValue('custrecord_ns_prr_item_id')
                     ,   created: result.getValue('created')

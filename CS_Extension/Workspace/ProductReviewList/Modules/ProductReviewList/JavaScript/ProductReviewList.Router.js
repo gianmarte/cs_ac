@@ -12,6 +12,7 @@ define('Kodella.ProductReviewList.ProductReviewList.Router'
     ,	'Kodella.ProductReviewList.ProductReviewList.Detail.View'
     ,   'Profile.Model'
     ,   'Product.Model'
+    ,   'Item.Model'
 
 	,	'Backbone'
 	,	'underscore'
@@ -23,6 +24,7 @@ define('Kodella.ProductReviewList.ProductReviewList.Router'
     ,	ReviewDetail
     ,   ProfileModel
     ,   ProductModel
+    ,   ItemModel
 
 	,	Backbone
 	,	_
@@ -54,15 +56,23 @@ define('Kodella.ProductReviewList.ProductReviewList.Router'
                 collection: reviewCollection,
                 application: this.application
             });
-
-            console.log("reviewCollection",reviewCollection);
 			
 			reviewCollection.fetch().done(function() {
 				listview.showContent();
 			});
         }
-    ,   ProductReviewedDetails: function(id){
-            
+    ,   ProductReviewedDetails: function(id)
+        {
+            if(this.profileModel.get('isLoggedIn') !== 'T')
+            {
+                return this.application.getLayout().notFound();
+            }
+
+            var reviewsModel = new ReviewsModel({reviewid: id});
+            var product = new ProductModel();
+
+            console.log("reviewsModel", reviewsModel);
+
         }
     });
 });

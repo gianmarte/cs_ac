@@ -35,7 +35,7 @@
             "myaccount": {
                 "files": [
                     "Modules/ProductReviewList/Templates/productreview_list.tpl",
-                    "Modules/ProductReviewList/Templates/kodella_productreviewlist_productreviewlist_edit.tpl"
+                    "Modules/ProductReviewList/Templates/productreviewlist_detail.tpl"
                 ]
             }
         }

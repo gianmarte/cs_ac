@@ -28,7 +28,9 @@ define(
 
 		,	get: function get()
 			{
-				return ProductReviewListModel.get();
+				var id = this.request.getParameter('reviewid');
+				console.log("id", id);
+				return id ? ProductReviewListModel.get(id) : (ProductReviewListModel.list() || []);
 			}
 		});
 	}

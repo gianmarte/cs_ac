@@ -21,7 +21,7 @@ define(
 		{
 			return {
 				id: 'reviewlist'
-            ,	name: _('Products Reviewed').translate()
+            ,	name: _('Reviews').translate()
             ,   url: 'reviewlist'
 			,	index: 5
 			};
