@@ -11,39 +11,25 @@
 	</header>
 
 	{{#if hasProductReviewed}}
-	<div class="order-history-list-recordviews-container">
 		<table class="order-history-list-recordviews-actionable-table">
 			<thead class="order-history-list-recordviews-actionable-header">
 				<tr>
 					<th class="order-history-list-recordviews-actionable-title-header">
-						<span>{{translate 'Purchase No.'}}</span>
+						<span>{{translate 'Review ID'}}</span>
 					</th>
 					<th class="order-history-list-recordviews-actionable-date-header">
-						<span>{{translate 'Date'}}</span>
+						<span>{{translate 'Review Title'}}</span>
 					</th>
 					<th class="order-history-list-recordviews-actionable-currency-header">
-						<span>{{translate 'Amount'}}</span>
+						<span>{{translate 'Rating'}}</span>
 					</th>
-					{{#if isSCISIntegrationEnabled}}
-						{{#unless inStoreIsActive}}
-							<th class="order-history-list-recordviews-actionable-origin-header">
-								<span>{{translate 'Origin'}}</span>
-							</th>
-						{{/unless}}
-					{{else}}
-						<th class="order-history-list-recordviews-actionable-status-header">
-							<span>{{translate 'Status'}}</span>
-						</th>
-					{{/if}}
 					<th class="order-history-list-recordviews-actionable-actions-header">
-						<span>{{translate 'Track Items'}}</span>
+						<span>{{translate 'Review Date'}}</span>
 					</th>
 				</tr>
 			</thead>
 			<tbody class="order-history-list" data-view="ProductReviews.Collection"></tbody>
-		</table>
-	</div>
-
+		</table>	
 	{{else}}
 		<div class="order-history-list-empty-section">
 			<h5>{{translate 'You have not reviewed any products yet'}}</h5>

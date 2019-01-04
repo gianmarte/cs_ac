@@ -4,19 +4,23 @@
 
 define('Kodella.ProductReviewList.ProductReviewList.Collection'
 , [
-    'Backbone'
+    'Backbone.CachedCollection'
   , 'Kodella.ProductReviewList.ProductReviewList.Model'
   , 'underscore'
   ]
 , function
   (
-    Backbone
+    BackboneCachedCollection
   , Model
   , _
   )
 {
-  return Backbone.Collection.extend({
-    model: Model
-  , url: _.getAbsoluteUrl('services/ProductReviewList.Service.ss')
-  })
+  return BackboneCachedCollection.extend({
+      model: Model
+  ,   url: _.getAbsoluteUrl('services/ProductReviewList.Service.ss')
+  ,   parse: function parse(response)
+  {
+      return response.records;
+  }
+})
 });

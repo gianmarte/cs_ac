@@ -48,12 +48,18 @@ define(
                 ];
 
                 // define record type to be searched
-                var search = nlapiSearchRecord('customrecord_ns_pr_review', null, filters, columns);
+                //var search = nlapiSearchRecord('customrecord_ns_pr_review', null, filters, columns);
+                var search = Application.getPaginatedSearchResults({
+                    results_per_page: 20
+                ,   columns: columns
+                ,   filters: filters
+                ,   record_type: 'customrecord_ns_pr_review'
+                });
 
                 // if you need to, log it so that you can see it
                 // var log1 = nlapiLogExecution('DEBUG', 'search', JSON.stringify(search));
 
-                return _.map(search, function(result) {
+                search.records = _.map(search, function mapReviews(result) {
                     return {
                         reviewid: result.getValue('internalid')
                     ,   rating: result.getValue('custrecord_ns_prr_rating')
@@ -64,12 +70,15 @@ define(
                     ,   writer: result.getValue('custrecord_ns_prr_writer')
                     }
                 });
+
+                return search;
             }
         }
     ,   get: function(id)
         {
             if(ModelsInit.session.isLoggedIn2())
             {
+                var results = [];
                 //define which product review record to return
                 var filters = [
                     new nlobjSearchFilter('internalid', null, 'anyof', id)
@@ -87,7 +96,7 @@ define(
                 // define record type to be searched
                 var search = nlapiSearchRecord('customrecord_ns_pr_review', null, filters, columns);
 
-                return _.map(search, function(result) {
+                results.records = _.map(search, function(result) {
                     return {
                         rating: result.getValue('custrecord_ns_prr_rating')
                     ,   text: result.getValue('custrecord_ns_prr_text')
@@ -97,6 +106,8 @@ define(
                     ,   writer: result.getValue('custrecord_ns_prr_writer')
                     }
                 });
+
+                return results;
             }
         }
     });

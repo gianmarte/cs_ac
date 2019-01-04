@@ -19,15 +19,24 @@ define(
     'use strict';
 
     return ServiceController.extend({
+
         name: 'ProductReviewList.ServiceController'
-    ,   options: {
+
+        // The values in this object are the validation needed for the current service.
+        // Can have values for all the request methods ('common' values) and specific for each one.
+    ,	options: {
             common: {
                 requireLogin: true
             }
         }
-    ,   get: function()
+
+    ,	get: function get()
         {
-            return ProductReviewListModel.get();
-        }   
+            var id = this.request.getParameter('internalid');
+            var id2 = this.request.getParameter('reviewid');
+            console.log("id", id);
+            console.log("id2", id2);
+            return id ? ProductReviewListModel.get(id) : (ProductReviewListModel.list() || []);
+        }
     });
 });

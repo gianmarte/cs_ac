@@ -28,8 +28,10 @@ define(
 
 		,	get: function get()
 			{
-				var id = this.request.getParameter('reviewid');
+				var id = this.request.getParameter('internalid');
+				var id2 = this.request.getParameter('reviewid');
 				console.log("id", id);
+				console.log("id2", id2);
 				return id ? ProductReviewListModel.get(id) : (ProductReviewListModel.list() || []);
 			}
 		});

@@ -11,4 +11,6 @@ define('Kodella.ProductReviewList.ProductReviewList'
 	)
 {
 	'use strict';
+
+	return ProductReviewListServiceController;
 });

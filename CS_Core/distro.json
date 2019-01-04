@@ -314,6 +314,7 @@
                 "entryPoint": "SC.MyAccount.Starter",
                 "exportFile": "myaccount.js",
                 "dependencies": [
+                    "ProductReviewList",
                     "SC.Environment.Component",
                     "Backbone.View.Plugins",
                     "Location",
@@ -858,6 +859,7 @@
                                 "myaccount-layout.scss"
                             ]
                         },
+                        "ProductReviewList",
                         "Address",
                         "Backbone.CollectionView",
                         "BackboneExtras",

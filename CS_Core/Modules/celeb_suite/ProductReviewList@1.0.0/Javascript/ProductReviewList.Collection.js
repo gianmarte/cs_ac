@@ -4,19 +4,23 @@
 
 define('ProductReviewList.Collection'
 , [
-    'Backbone'
+    'Backbone.CachedCollection'
   , 'ProductReview.List.Model'
   , 'underscore'
   ]
 , function
   (
-    Backbone
+    BackboneCachedCollection
   , Model
   , _
   )
 {
-  return Backbone.Collection.extend({
+  return BackboneCachedCollection.extend({
     model: Model
-  , url: _.getAbsoluteUrl('services/ProductReviewList.Service.ss')
-  })
+,   url: _.getAbsoluteUrl('services/ProductReviewList.Service.ss')
+,   parse: function parse(response)
+{
+    return response.records;
+}
+})
 });

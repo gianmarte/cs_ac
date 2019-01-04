@@ -16,6 +16,9 @@ define('Kodella.ProductReviewList.ProductReviewList.Model'
 	var ProductReviewListModel = Backbone.Model.extend({
 
 		urlRoot: Utils.getAbsoluteUrl(getExtensionAssetsPath('services/ProductReviewList.Service.ss'))
+	,	test: function(){
+			console.log("this", this.get('reviewid'));
+	}
 	});
 
 	return ProductReviewListModel;

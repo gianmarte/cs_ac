@@ -132,7 +132,7 @@ define('OrderHistory.Router'
 				,	id: id
 				,	model: model
 				});
-
+				
 			model
 				.once('change', view.showContent, view)
 				.fetch({

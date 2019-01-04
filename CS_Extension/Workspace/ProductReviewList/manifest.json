@@ -58,12 +58,12 @@
         }
     },
     "ssp-libraries": {
-        "entry_point": "Modules/ProductReviewList/SuiteScript/Kodella.ProductReviewList.ProductReviewList.js",
+        "entry_point": "Modules/ProductReviewList/SuiteScript/ProductReviewList.ServiceController.js",
         "files": [
             "Modules/ProductReviewList/SuiteScript/Kodella.ProductReviewList.ProductReviewList.js",
             "Modules/ProductReviewList/SuiteScript/ProductReviewList.ServiceController.js",
             "Modules/ProductReviewList/SuiteScript/ProductReviewList.Model.js"
         ]
     },
-    "local_folder": "Workspace\\ProductReviewList"
+    "local_folder": "Workspace/ProductReviewList"
 }

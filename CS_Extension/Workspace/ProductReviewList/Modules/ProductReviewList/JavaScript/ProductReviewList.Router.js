@@ -52,6 +52,8 @@ define('Kodella.ProductReviewList.ProductReviewList.Router'
 
             var reviewCollection = new Collection();
 
+            console.log("reviewCollection", reviewCollection);
+
             var listview = new ReviewListView({
                 collection: reviewCollection,
                 application: this.application
@@ -68,10 +70,11 @@ define('Kodella.ProductReviewList.ProductReviewList.Router'
                 return this.application.getLayout().notFound();
             }
 
-            var reviewsModel = new ReviewsModel({reviewid: id});
+            var reviewsModel = new ReviewsModel();
             var product = new ProductModel();
 
             console.log("reviewsModel", reviewsModel);
+            console.log("product", product);
 
         }
     });

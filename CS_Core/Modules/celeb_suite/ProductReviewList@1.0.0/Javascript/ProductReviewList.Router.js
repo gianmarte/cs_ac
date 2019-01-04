@@ -48,21 +48,29 @@ define('ProductReviewList.Router'
                 return this.application.getLayout().notFound();
             }
 
-            var reviewCollection = new Collection;
+            var reviewCollection = new Collection();
+
+            console.log("reviewCollection", reviewCollection);
 
             var listview = new ReviewListView({
                 collection: reviewCollection,
                 application: this.application
             });
-
-            console.log("reviewCollection",reviewCollection);
-
-            reviewCollection.fetch().done(function() {
-                listview.showContent();
-            });
+			
+			reviewCollection.fetch().done(function() {
+				listview.showContent();
+			});
         }
-    ,   ProductReviewedDetails: function(){
-            
+    ,   ProductReviewedDetails: function(id)
+        {
+            if(this.profileModel.get('isLoggedIn') !== 'T')
+            {
+                return this.application.getLayout().notFound();
+            }
+
+            var reviewsModel = new ReviewsModel();
+            var product = new ProductModel();
+            var collection = new Collection();
         }
     });
 });
