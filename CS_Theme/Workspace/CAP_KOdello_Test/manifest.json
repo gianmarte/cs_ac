@@ -906,6 +906,8 @@
                     "Modules/ProductList@sco-2018.1.0/Templates/product_list_deletion.tpl",
                     "Modules/ProductList@sco-2018.1.0/Templates/products_detail_later_cell.tpl",
                     "Modules/ProductReviewList@1.0.0/Templates/productreview_list.tpl",
+                    "Modules/ProductReviewList@1.0.0/Templates/productreview_details.tpl",
+                    "Modules/ProductReviewList@1.0.0/Templates/productreview_item.tpl",
                     "Modules/Cart@sco-2018.1.0/Templates/cart_lines.tpl",
                     "Modules/Cart@sco-2018.1.0/Templates/cart_lines_free.tpl",
                     "Modules/Cart@sco-2018.1.0/Templates/cart_promocode_notifications.tpl",
@@ -1333,5 +1335,5 @@
             }
         }
     },
-    "local_folder": "Workspace/CAP_Kodello_Test"
+    "local_folder": "Workspace\\CAP_Kodello_Test"
 }

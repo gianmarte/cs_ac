@@ -50,8 +50,6 @@ define('ProductReviewList.Router'
 
             var reviewCollection = new Collection();
 
-            console.log("reviewCollection", reviewCollection);
-
             var listview = new ReviewListView({
                 collection: reviewCollection,
                 application: this.application
@@ -68,9 +66,33 @@ define('ProductReviewList.Router'
                 return this.application.getLayout().notFound();
             }
 
-            var reviewsModel = new ReviewsModel();
             var product = new ProductModel();
             var collection = new Collection();
+            var item = product.get('item');
+            var self = this;
+
+            collection.fetch().done(function() 
+            {
+
+                for(var i = 0; i < collection.models.length; i++)
+                {
+                    if(id == collection.models[i].attributes.reviewid)
+                    {
+                        var review_details = collection.models[i].attributes;
+
+                        item.fetch({data: {id: collection.models[i].attributes.itemid}}).done(function() 
+                        {   
+                            var detailview = new ReviewDetail({
+                                application: self.application
+                            ,   collection: review_details
+                            ,   model: item
+                            });
+                            detailview.showContent();
+                        });
+                    }
+                }
+                
+            });
         }
     });
 });

@@ -51,10 +51,6 @@ define(
 		{
 			BackboneCompositeView.add(this);
 			var self = this;
-			this.collection.on('reset sync add remove change destroy', function ()
-			{
-				self.render();
-			});
 		}
 
 	,	childViews: {
