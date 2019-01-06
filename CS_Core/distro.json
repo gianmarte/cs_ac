@@ -12,7 +12,6 @@
         "deploy": "DeployDistribution"
     },
     "modules": {
-        "celeb_suite/ProductReviewList": "1.0.0",
         "celeb_suite/ZendeskChat": "1.0.0",
         "suitecommerce/Account": "aconcaguaR2",
         "suitecommerce/Address": "aconcaguaR2",
@@ -314,7 +313,6 @@
                 "entryPoint": "SC.MyAccount.Starter",
                 "exportFile": "myaccount.js",
                 "dependencies": [
-                    "ProductReviewList",
                     "SC.Environment.Component",
                     "Backbone.View.Plugins",
                     "Location",
@@ -542,7 +540,6 @@
         "ssp-libraries": {
             "entryPoint": "SCA",
             "dependencies": [
-                "ProductReviewList.ServiceController",
                 "Application",
                 "Account.ForgotPassword.ServiceController",
                 "Account.Login.ServiceController",
@@ -859,7 +856,6 @@
                                 "myaccount-layout.scss"
                             ]
                         },
-                        "ProductReviewList",
                         "Address",
                         "Backbone.CollectionView",
                         "BackboneExtras",

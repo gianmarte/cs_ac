@@ -13,7 +13,8 @@
             "ProductReviewList.Service.ss": "ProductReviewList.ServiceController"
         },
         "sass": [
-            "Sass/**/*.scss"
+            "Sass/_productreview-details.scss"
+        ,   "Sass/_productreview-list.scss"
         ]
     }
 }

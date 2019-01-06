@@ -18,10 +18,10 @@
       "InfiniteScrolling": [
         "shopping"
       ],
-      "ProductReviewList": [
+      "TestExtension": [
         "myaccount"
       ],
-      "TestExtension": [
+      "MyProductReview": [
         "myaccount"
       ]
     }

@@ -9,7 +9,7 @@ define('ProductReviewList.Router'
 		'ProductReview.List.Model'
 	,	'ProductReviewList.Collection'
     ,	'ProductReview.List.View'
-    ,	'ProductReview.Detail.View'
+    ,	'ProductReview.List.Detail.View'
     ,   'Profile.Model'
     ,   'Product.Model'
 

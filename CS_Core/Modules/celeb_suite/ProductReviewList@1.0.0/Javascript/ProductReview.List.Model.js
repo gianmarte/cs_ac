@@ -19,9 +19,6 @@ define('ProductReview.List.Model'
 	var ProductReviewListModel = Backbone.Model.extend({
 
 		urlRoot: Utils.getAbsoluteUrl('services/ProductReviewList.Service.ss')
-	,	test: function(){
-			console.log("this", this.get('reviewid'));
-	}
 	});
 
 	return ProductReviewListModel;

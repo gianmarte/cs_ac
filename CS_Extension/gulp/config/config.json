@@ -31,7 +31,7 @@
         "extmech_parent": "-15",
         "extensions_path": [
             "Workspace/InfiniteScrolling",
-            "Workspace/ProductReviewList"
+            "Workspace/MyProductReview"
         ],
         "theme_path": "Workspace/Extras/CAP_Kodello_Test",
         "overrides_path": "Workspace/Extras/CAP_Kodello_Test/Overrides",

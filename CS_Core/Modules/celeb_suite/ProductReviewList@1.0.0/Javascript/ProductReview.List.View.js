@@ -8,7 +8,6 @@ define(
 ,	[	'Backbone.CompositeView'
 	,	'Backbone.CollectionView'
 	,	'SC.Configuration'
-	//,	'ProductReviewList.Detail.View'
 	,	'GlobalViews.StarRating.View'
 	,	'RecordViews.View'
 
@@ -23,7 +22,6 @@ define(
 		BackboneCompositeView
 	,	BackboneCollectionView
 	,	Configuration
-	//,	ReviewDetailsView
 	,	GlobalViewsStarRatingView
 	,	RecordViewsView
 
