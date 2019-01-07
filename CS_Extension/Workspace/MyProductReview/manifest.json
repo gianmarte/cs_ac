@@ -24,7 +24,8 @@
             "myaccount": {
                 "files": [
                     "Modules/MyProductReview/Templates/productreview_list.tpl",
-                    "Modules/MyProductReview/Templates/productreview_details.tpl"
+                    "Modules/MyProductReview/Templates/productreview_details.tpl",
+                    "Modules/MyProductReview/Templates/productreview_detail_cell.tpl"
                 ]
             }
         }
@@ -51,7 +52,8 @@
                     "Modules/MyProductReview/JavaScript/MyProductReview.List.View.js",
                     "Modules/MyProductReview/JavaScript/MyProductReview.Collection.js",
                     "Modules/MyProductReview/JavaScript/MyProductReview.Model.js",
-                    "Modules/MyProductReview/JavaScript/MyProductReview.Detail.View.js"
+                    "Modules/MyProductReview/JavaScript/MyProductReview.Detail.View.js",
+                    "Modules/MyProductReview/JavaScript/MyProductReview.List.Cell.View.js"
                 ]
             }
         }

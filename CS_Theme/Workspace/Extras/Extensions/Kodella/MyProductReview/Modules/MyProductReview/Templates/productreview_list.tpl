@@ -12,19 +12,19 @@
 
 	{{#if hasProductReviewed}}
 		<table class="order-history-list-recordviews-actionable-table">
-			<thead class="order-history-list-recordviews-actionable-header">
+			<thead class="">
 				<tr>
-					<th class="order-history-list-recordviews-actionable-title-header">
-						<span>{{translate 'Review ID'}}</span>
+					<th class="">
+						<span>{{translate 'Item Reviewed'}}</span>
 					</th>
-					<th class="order-history-list-recordviews-actionable-date-header">
-						<span>{{translate 'Review Title'}}</span>
+					<th class="">
+						<span>{{translate 'Title'}}</span>
 					</th>
-					<th class="order-history-list-recordviews-actionable-currency-header">
+					<th class="">
+						<span>{{translate 'Publish Date'}}</span>
+					</th>
+					<th class="">
 						<span>{{translate 'Rating'}}</span>
-					</th>
-					<th class="order-history-list-recordviews-actionable-actions-header">
-						<span>{{translate 'Review Date'}}</span>
 					</th>
 				</tr>
 			</thead>

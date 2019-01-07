@@ -15,16 +15,16 @@
 			<thead class="order-history-list-recordviews-actionable-header">
 				<tr>
 					<th class="order-history-list-recordviews-actionable-title-header">
-						<span>{{translate 'Review ID'}}</span>
+						<span>{{translate 'Item Reviewed'}}</span>
 					</th>
 					<th class="order-history-list-recordviews-actionable-date-header">
-						<span>{{translate 'Review Title'}}</span>
+						<span>{{translate 'Title'}}</span>
 					</th>
 					<th class="order-history-list-recordviews-actionable-currency-header">
-						<span>{{translate 'Rating'}}</span>
+						<span>{{translate 'Publish Date'}}</span>
 					</th>
 					<th class="order-history-list-recordviews-actionable-actions-header">
-						<span>{{translate 'Review Date'}}</span>
+						<span>{{translate 'Rating'}}</span>
 					</th>
 				</tr>
 			</thead>

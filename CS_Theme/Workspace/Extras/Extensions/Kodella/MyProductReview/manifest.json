@@ -24,7 +24,8 @@
 			"myaccount": {
 				"files": [
 					"Modules/MyProductReview/Templates/productreview_list.tpl",
-					"Modules/MyProductReview/Templates/productreview_details.tpl"
+					"Modules/MyProductReview/Templates/productreview_details.tpl",
+					"Modules/MyProductReview/Templates/productreview_detail_cell.tpl"
 				]
 			}
 		}

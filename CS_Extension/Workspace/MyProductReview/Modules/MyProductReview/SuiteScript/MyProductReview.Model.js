@@ -40,6 +40,7 @@ define('Kodella.MyProductReview.MyProductReview.Model'
                 ,   new nlobjSearchColumn('created')
                 ,   new nlobjSearchColumn('name')
                 ,   new nlobjSearchColumn('custrecord_ns_prr_writer')
+                ,   new nlobjSearchColumn('storedisplayname', 'CUSTRECORD_NS_PRR_ITEM')
                 ];
 
                 // define record type to be searched
@@ -63,6 +64,7 @@ define('Kodella.MyProductReview.MyProductReview.Model'
                     ,   created: result.getValue('created')
                     ,   reviewTitle: result.getValue('name')
                     ,   writer: result.getValue('custrecord_ns_prr_writer')
+                    ,   itemname: result.getValue('storedisplayname', 'CUSTRECORD_NS_PRR_ITEM')
                     }
                 });
 

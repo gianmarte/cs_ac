@@ -9,8 +9,10 @@ define('Kodella.MyProductReview.MyProductReview.List.View'
 	,	'SC.Configuration'
 	,	'GlobalViews.StarRating.View'
 	,	'RecordViews.View'
+	,	'Kodella.MyProductReview.MyProductReview.List.Cell.View'
 
 	,	'productreview_list.tpl'
+	,	'productreview_detail_cell.tpl'
 
 	,	'Backbone'
 	,	'underscore'
@@ -25,8 +27,10 @@ define('Kodella.MyProductReview.MyProductReview.List.View'
 	,	Configuration
 	,	GlobalViewsStarRatingView
 	,	RecordViewsView
+	,	ListCellView
 
 	,	productreview_list_tpl
+	,	productreview_detail_cell_tpl
 
 	,	Backbone
 	,	_
@@ -36,6 +40,7 @@ define('Kodella.MyProductReview.MyProductReview.List.View'
 	'use strict';
 
 	//@class ProductReview.List.View List user's reviewed products @extend Backbone.View
+
 	return Backbone.View.extend({
 
 		template: productreview_list_tpl
@@ -49,36 +54,31 @@ define('Kodella.MyProductReview.MyProductReview.List.View'
 	,	initialize: function ()
 		{
 			BackboneCompositeView.add(this);
-			var self = this;
+			
 		}
-
 	,	childViews: {
 			'ProductReviews.Collection': function ()
 			{
 				var reviews_collection = new Backbone.Collection(this.collection.map(function (reviews)
 				{
-					return new Backbone.Model({
+					return new Backbone.Model(
+					{
 						touchpoint: 'customercenter'
-					,	title: _('$(0)').translate(reviews.get('reviewid'))
+					,	title: _('$(0)').translate(reviews.get('itemname'))
 					,	detailsURL: '#/reviewlist/' + reviews.get('reviewid')
 					,	internalid: reviews.get('reviewid')
+					,	rating: reviews.get('rating')
 					,	columns: [
 							{
-								label: _('Review Title').translate()
+								label: _('Title').translate()
 							,	type: 'review-title'
 							,	name: 'review-title'
 							,	value: reviews.get('reviewTitle')
 							}
 						,	{
-								label: _('Rating').translate()
-							,	type: 'rating'
-							,	name: 'rating'
-							,	value: reviews.get('rating')
-							}
-						,	{
-								label: _('Review Date').translate()
-							,	type: 'review-date'
-							,	name: 'review-title'
+								label: _('Date Published').translate()
+							,	type: 'date-published'
+							,	name: 'date-published'
 							,	value: reviews.get('created')
 							}
 						]
@@ -87,13 +87,12 @@ define('Kodella.MyProductReview.MyProductReview.List.View'
 
 				return new BackboneCollectionView(
 				{
-					childView: RecordViewsView
+					childView: ListCellView
 				,	collection: reviews_collection
 				,	viewsPerRow: 1
 				});
 			}
-
-		,	'GlobalViews.Pagination': function ()
+		,		'GlobalViews.Pagination': function ()
 			{
 				return new GlobalViewsPaginationView({
 					totalPages: Math.ceil(this.model.get('totalRecordsFound') / this.model.get('recordsPerPage'))
@@ -125,7 +124,6 @@ define('Kodella.MyProductReview.MyProductReview.List.View'
 		//@method getContext @return {ProductReviewList.List.View.Context}
 	,	getContext: function ()
 		{
-			console.log("Configuration.defaultPaginationSettings", Configuration.defaultPaginationSettings);
 			//@class ProductReviewList.List.View.Context
 			return {
 				//@property {String} pageHeader
