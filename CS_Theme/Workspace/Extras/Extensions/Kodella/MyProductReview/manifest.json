@@ -31,14 +31,14 @@
 		}
 	},
 	"sass": {
-        "entry_points": {
-            "myaccount": "Modules/MyProductReview/Sass/_productreview-productreview.scss"
-        },
-        "files": [
-            "Modules/MyProductReview/Sass/_productreview-productreview.scss",
-            "Modules/MyProductReview/Sass/_productreview-details.scss",
-            "Modules/MyProductReview/Sass/_productreview-list.scss"
-        ]
+		"entry_points": {
+			"myaccount": "Modules/MyProductReview/Sass/_productreview-productreview.scss"
+		},
+		"files": [
+			"Modules/MyProductReview/Sass/_productreview-productreview.scss",
+			"Modules/MyProductReview/Sass/_productreview-details.scss",
+			"Modules/MyProductReview/Sass/_productreview-list.scss"
+		]
 	},
 	"javascript": {
 		"entry_points": {
@@ -52,7 +52,8 @@
 					"Modules/MyProductReview/JavaScript/MyProductReview.List.View.js",
 					"Modules/MyProductReview/JavaScript/MyProductReview.Collection.js",
 					"Modules/MyProductReview/JavaScript/MyProductReview.Model.js",
-					"Modules/MyProductReview/JavaScript/MyProductReview.Detail.View.js"
+					"Modules/MyProductReview/JavaScript/MyProductReview.Detail.View.js",
+					"Modules/MyProductReview/JavaScript/MyProductReview.List.Cell.View.js"
 				]
 			}
 		}

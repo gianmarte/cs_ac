@@ -218,7 +218,6 @@
 			{{translate 'Reviews'}}
 		</a>
 	</li>
-
 </ul>
 
 
