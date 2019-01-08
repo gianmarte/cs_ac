@@ -12,7 +12,7 @@
 
 	{{#if hasProductReviewed}}
 		<table class="order-history-list-recordviews-actionable-table">
-			<thead class="">
+			<thead class="recordviews-actionable-header">
 				<tr>
 					<th class="">
 						<span>{{translate 'Item Reviewed'}}</span>

@@ -1,6 +1,4 @@
-{{#if showBackToAccount}}
 <a href="/reviewlist" class="product-review-list-detail-back-btn">{{translate '&lt; Back to My Reviews'}}</a>
-{{/if}}
 
 <section>
 	<header>

@@ -1,4 +1,4 @@
-<tr class="recordviews-row" data-item-id="{{id}}" data-navigation-hashtag="{{detailsURL}}" data-action="navigate">
+<tr class="recordviews-row" data-item-id data-id="{{id}}" data-navigation-hashtag="{{detailsURL}}" data-action="navigate">
 	<td class="recordviews-title" data-name="title">
 		<span class="recordviews-title-value">
 			<a class="recordviews-title-anchor" href="#" data-touchpoint="{{touchpoint}}" data-id="{{id}}" data-hashtag="{{detailsURL}}">

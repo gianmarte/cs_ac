@@ -212,6 +212,12 @@
 		</ul>
 	</li>
 	{{/if}}
+	{{!-- KODELLA CODE --}}
+	<li class="header-menu-myaccount-item-level2">
+		<a class="header-menu-myaccount-anchor-level2" href="#" data-touchpoint="customercenter" data-hashtag="#reviewlist" name="reviewlist">
+			{{translate 'Reviews'}}
+		</a>
+	</li>
 
 </ul>
 

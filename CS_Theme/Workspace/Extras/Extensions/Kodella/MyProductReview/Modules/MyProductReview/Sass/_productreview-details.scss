@@ -67,7 +67,7 @@
 }
 
 .product-review-list-detail-back-btn {
-	@extend .button-back-icon;
+	@extend .button-back;
 }
 
 .product-review-list-detail-title {
@@ -92,8 +92,12 @@
 }
 
 .product-review-list-detail-header-rating-container {
-	@extend .col-sm-6;
-	float:right;
+	margin-left: 15px;
+
+	@media(min-width: $screen-sm-min){
+		left: 50%;
+		position:absolute;
+	}
 }
 
 .product-review-list-detail-rating-data {
@@ -107,12 +111,23 @@
 
 .product-review-list-detail-content-col {
 	@extend .col-md-8;
-	margin-bottom:$sc-margin-lv4;
-	width: 100%;
 
-	@media (min-width: $screen-sm-min) {
+	@media (min-width: $screen-md-min) {
+		//medium
 		margin-bottom:$sc-margin-lv4;
-		width: 69%;
+		width: 100%;
+	}
+
+	@media(min-width: $screen-sm-min){
+		//small
+		margin-bottom:$sc-margin-lv4;
+		width: 540px;
+	}
+
+	@media(min-width: $screen-lg-min) {
+		//large
+		margin-bottom:$sc-margin-lv4;
+		width: 615px;
 	}
 }
 

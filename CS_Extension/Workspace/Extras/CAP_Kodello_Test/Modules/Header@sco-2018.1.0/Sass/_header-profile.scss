@@ -17,6 +17,7 @@
 
 .header-profile-welcome-link{
 	color: $sc-color-secondary;
+	margin-left: -10px;
 }
 
 .header-profile-welcome-link-name{
@@ -83,8 +84,11 @@
 //my account menu
 .header-profile-menu-myaccount-container {
 	@extend .header-menu-level-container;
-	padding: $sc-padding-lv3 0 $sc-padding-lv7;
+	padding: $sc-padding-lv3 10 $sc-padding-lv7 0;
 	z-index: 1002;
+	margin-top: 40px;
+
+
 }
 
 .open .header-profile-welcome-link:before {

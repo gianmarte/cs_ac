@@ -51,10 +51,28 @@ define('Kodella.MyProductReview.MyProductReview.List.View'
 
 	,	attributes: { 'class': 'ProductReviewListView' }
 
+	,	events: {
+		'click [data-action="navigate"]': 'navigateToReview'
+	}
+
 	,	initialize: function ()
 		{
 			BackboneCompositeView.add(this);
 			
+		}
+	,	navigateToReview: function(e) 
+		{
+			//ignore clicks on anchors and buttons
+			if (_.isTargetActionable(e))
+			{
+				return;
+			}
+
+			if (!jQuery(e.target).closest('[data-type="accordion"]').length)
+			{
+				var review_id = jQuery(e.target).closest('[data-id]').data('id');
+				Backbone.history.navigate('#reviewlist/' + review_id, {trigger:true});
+			}
 		}
 	,	childViews: {
 			'ProductReviews.Collection': function ()
