@@ -1,0 +1,50 @@
+{
+    "type": "object",
+    "group": {
+        "id": "easyAsk",
+        "title": "EasyAsk Integration",
+        "description": "EasyAsk Integration"
+    },
+    "subtab": {
+        "id": "easyAskConfig",
+        "group": "easyAsk",
+        "title": "EasyAsk Configuration",
+        "description": "EasyAsk settings"
+    },
+
+    "resource": {
+        "easyasktemplates": {
+            "facet-navigation-item": [
+                "facets_faceted_navigation_item.tpl",
+                "facets_faceted_navigation_item_color.tpl",
+                "facets_faceted_navigation_item_range.tpl"
+            ],
+            "facets-item-cell": [
+                "facets_item_cell_list.tpl",
+                "facets_item_cell_table.tpl",
+                "facets_item_cell_grid.tpl",
+                "kodella_easyask_item_cell_list.tpl",
+                "kodella_easyask_item_cell_grid.tpl"
+            ]
+        }
+    },
+    
+    "properties": {
+        "easyAskConfig.server": {
+            "group": "easyAsk",
+            "subtab": "easyAskConfig",
+            "type": "string",
+            "title": "EasyAsk Server",
+            "description": "Enter the URL for the EasyAsk server where the data will be pulled from",
+            "default": "lonestar.prod.easyaskondemand.com"
+        },
+        "easyAskConfig.dct": {
+            "group": "easyAsk",
+            "subtab": "easyAskConfig",
+            "type": "string",
+            "title": "EasyAsk Dictionary",
+            "description": "Enter EasyAsk dictionary",
+            "default": "lonestar"
+        }
+    }
+}

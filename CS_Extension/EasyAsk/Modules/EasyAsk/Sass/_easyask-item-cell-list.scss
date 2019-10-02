@@ -1,0 +1,222 @@
+/*
+	Sass Application Entry Point
+	Link all your sass dependencies in the right order
+
+	Example:
+	@import "other-sass-file.scss";
+	@import "../../<other module>/Sass/other-sass-file.scss";
+*/
+
+
+/* Buy box start */
+#plp-add-to-cart{
+	float: right;
+	width: 40%;
+	min-width: 170px;
+	margin-left: 10px;
+	margin-bottom: 0;
+
+	@media (max-width: 767px)
+	{
+		position: absolute;
+		top: 110px;
+		width: 170px;
+		right: 0;
+	}
+}
+
+ul.addToCart.panel{
+	border-radius: 4px 4px 0 0;
+	background-color: rgba(255,255,255,0);
+	padding: 0px;
+
+	@media (max-width: 767px){
+		box-shadow: none;
+		border: 0;
+	}
+	
+}
+
+span.productPrice{
+	font-size: 19px !important;
+	line-height: 1em;
+    font-weight: bold;
+
+    @media (max-width: 767px){
+    	float: right;
+    }
+
+}
+
+li.productAvailability.has0Options{
+	padding: 5px 10px;
+	border-top: 1px solid #DEDCDA;
+
+	@media (max-width: 767px){
+		display: none;
+	}
+}
+
+span.status{
+	display: inline;
+	font-weight: bold;
+	font-size: 13px;
+	color: black;
+	background-color: transparent;
+	padding-left: 0;
+	text-transform: uppercase;
+}
+
+span.details{
+	color: #847e77;
+	font-size: 13px;
+	line-height: 18px;
+}
+
+#plp-add-to-cart > ul > li > .product-details-quantity-options{
+	display: flex; 
+	justify-content: flex-end;
+
+	@media (max-width: 767px){
+		display: none;
+	}
+}
+
+#plp-add-to-cart > ul > li > .cart-add-to-cart-button{
+	background-color: #F5F4F0;
+	padding: 5px 10px; 
+	text-align: right; 
+	border-top: 1px solid #DEDCDA;
+
+	@media (max-width: 767px){
+		background-color: transparent;
+		border-top: 0px;
+	}
+}
+
+#plp-add-to-cart > ul > li > .cart-add-to-cart-button-button{
+	@media (max-width: 767px){
+	width: 135px !important;
+	font-size: 14px;
+	padding: 10px 6px 10px 8px !important;
+	border-top: 0px;
+	} 
+	
+}
+
+button.details.icon-16-heart-grey.b5{
+	@media (max-width: 767px){
+		display: none;
+	}
+
+}
+
+span.details{
+	 @media (max-width: 767px){
+	 	display: none;
+	 }
+}
+
+span.productGrouping{
+	@media (max-width: 767px){
+		display: none;
+	}
+}
+
+.easyask-product-reviews-rating-count
+{
+	@media(max-width: 767px)
+	{
+		display: none;
+	}
+}
+
+.facets-facet-browse-items
+{
+	@media(max-width: 767px)
+	{
+		border: 10px solid rgba(255,255,255,0);
+		margin-left: 0px;
+	}
+}
+
+#plp-add-to-cart {
+	.cart-add-to-cart-button-button
+	{
+		@media(max-width: 979px) and (min-width: $screen-sm-min)
+		{
+			font-size: 14px;
+			padding: 10px 14px !important;
+			height: 40px;
+			width: auto !important;
+		}
+
+		@media(max-width: 767px)
+		{
+			width: 135px !important;
+			font-size: 13px;
+			height: 40px;
+			padding: 10px 14px !important;
+		}
+	}
+}
+
+.facets-item-cell-list-right
+{
+	@media(max-width: 767px)
+	{
+		padding-right: 0px;
+		padding-left: 0px;
+		float: right;
+		width: 68%;
+	}
+}
+
+.facets-item-cell-list-left
+{
+	@media(max-width: 767px)
+	{
+		padding-right: 0px;
+		padding-left: 0px;
+		margin-right: 5px;
+	}
+}
+
+.facets-item-cell-list-image-wrapper
+{
+	@media(max-width: 767px)
+	{
+		width: 100px;
+		height: 100px;
+	}
+}
+
+.facets-item-cell-list-left
+{
+	@media(max-width: 767px)
+	{
+		display: none;
+	}
+}
+
+.facets-item-cell-list-right
+{
+	@media(max-width: 767px)
+	{
+		width: 100%;
+	}
+}
+
+.facets-item-cell-list-image-mobile
+{
+	display: none;
+
+	@media(max-width: 767px)
+	{
+		display: block;
+		float: left;
+		margin-right: 10px;
+		width: 100px;
+		height: 100px;
+	}
+}

@@ -1,0 +1,88 @@
+.facets-faceted-navigation-item-facet-group-title
+{
+    position: absolute;
+    background-color: $superLightGrey;
+    color: black;
+    padding-right: 6px;
+    font-size: 14px;
+}
+
+.facets-faceted-navigation-item-facet-group-wrapper
+{
+    border-top: 1px solid $lightGrey;
+}
+
+.facets-faceted-navigation-item-facet-optionlist
+{
+    padding-top: 5px;
+}
+
+.facets-faceted-navigation-item-facet-option
+{
+    margin: 5px 0 0 5px;
+    padding: 0;
+}
+
+.facets-facet-browse-facets-sidebar
+{
+    display: block;
+}
+
+.level0
+{
+    &:before 
+    {
+        content: '←';
+        position: absolute;
+        color: $lightGrey;
+        margin-left: -20px;
+        margin-top: 3px;
+    }
+}
+
+.level1,
+.level2,
+.level3
+{
+    &:before 
+    {
+        display: block;
+        content : '↳';
+        position: static;
+        color: $lightGrey;
+        position: absolute;
+        margin-left: -20px;
+        margin-top: 3px;
+    }
+}
+
+.currentCategory
+{
+    &:before 
+    {
+        display: block;
+        content : '↳';
+        position: static;
+        color: $lightGrey;
+        position: absolute;
+        margin-left: -20px;
+        margin-top: 3px;
+    }
+}
+
+$catMargin: 15px;
+
+.level1
+{
+    margin-left: $catMargin;
+}
+
+.level2
+{
+    margin-left: $catMargin*2;
+}
+
+.currentCategory
+{
+    margin-left: $catMargin*3;
+}

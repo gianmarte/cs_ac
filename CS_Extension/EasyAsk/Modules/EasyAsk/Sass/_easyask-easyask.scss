@@ -1,0 +1,357 @@
+/*
+	Sass Application Entry Point
+	Link all your sass dependencies in the right order
+
+	Example:
+	@import "other-sass-file.scss";
+	@import "../../<other module>/Sass/other-sass-file.scss";
+*/ 
+@import "../../CartExt/Sass/_easyask-product-specs.scss";
+@import "_easyask-buybox.scss";
+@import "_easyask-item-cell-list.scss";
+@import "_easyask-facted-navigation.scss";
+
+.facets-facet-browse-list-header-actions {
+	display: block;
+}
+
+.facets-tab
+{
+	float: right;
+
+	> li {
+		float: right;
+	}
+}
+
+.facets-view-selector {
+	border: 1px solid $lightGrey;
+	border-radius: 4px 4px 0 0;
+	padding: 10px 20px 10px 40px;
+}
+
+.lonestar-icon-24-compact
+{	
+	outline: none;
+	&:after 
+	{
+		background-position: -46px -323px;
+		left: 5px;
+		content: " ";
+	}
+
+	&:active 
+	{
+		background-color: $superLightGrey;
+		border-bottom: 1px solid $superLightGrey;
+	}
+}
+
+.lonestar-icon-24-detailed
+{
+	border-bottom: 1px solid $superLightGrey;
+	background-color: $superLightGrey;
+	outline: none;
+
+	&:after 
+	{
+		background-position: -118px -291px;
+		left: 5px;
+		content: " ";
+	}
+
+	&:active 
+	{
+		background-color: $superLightGrey;
+		border-bottom: 1px solid $superLightGrey;
+	}
+}
+
+.facets-facet-browse-title 
+{
+	margin: unset;
+	font-weight: bold;
+	font-family: "Open Sans", sans-serif;
+
+	@media (max-width: $screen-sm-min){
+		font-weight: normal;
+		font-size: 13px;
+		margin-top: -15px;
+	}
+
+	.facets-facet-browse-title-pages {
+		color: #847e77;
+    	font-size: 13px;
+		font-weight: normal;
+	}
+}
+
+.facets-browse-category-heading-list-header
+{
+	paddin-bottom: unset;
+}
+
+.facets-facet-browse-results-tabs {
+	margin-left: 30px;
+    width: 100%;
+    display: flex;
+	justify-content: flex-end;
+	height: 40px;
+
+    > li {
+		padding-right: 10px;
+		border: 1px solid #cfcfcf;
+		border-radius: 4px 4px 0 0;
+		background-color: #FFF;
+
+	    &.active {
+			background-color: #f5f4f0;
+			border-bottom: none;
+	    }
+    }
+
+    @media (max-width: $screen-sm-min){
+    	display:none;
+    }
+}
+
+.facets-item-list-display-selector
+{
+	width: unset;
+    border: unset;
+    color: #847e77;
+    text-decoration: unset;
+	font-size: 13px;
+	height: 30px;
+}
+
+.icon-display-list, .icon-display-grid
+{
+	color: #847e77;
+	width: 35px;
+    height: 35px;
+}
+
+.facet-browse-controls
+{
+	display: flex;
+}
+
+.facets-facet-browse-pagination {
+
+	display: inline-block;
+	text-align: right;
+
+	> p {
+		display: inline-block;
+		margin-top: 8px;
+	}
+
+	> .facet-browse-next {
+    	width: 40px;
+	    height: 40px;
+	    border: solid 1px #847e77;
+	    border-radius: 20px;
+	    justify-content: center;
+	    font-weight: bold;
+	    font-size: 20px;
+	    margin-left: 10px;
+	    font-family: "League Gothic&quot", sans-serif;
+    	text-decoration: unset;
+		color: #000;
+		float: right;
+
+	    &:hover {
+	    	background: #f5d100;
+	    }
+    }
+}
+
+.lonestar-icon-24-next:after {
+	background-position: -117px -256px;
+	top: 80%;
+	left: 5px;
+}
+
+.facet-browse-pagination
+{
+	> div {
+		display: flex;
+		align-items: center;
+	}
+
+    & .facet-browse-next {
+    	width: 40px;
+	    height: 40px;
+	    border: solid 1px #847e77;
+	    border-radius: 20px;
+	    text-align: center;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    font-weight: bold;
+	    font-size: 20px;
+	    margin-left: 10px;
+	    font-family: "League Gothic&quot", sans-serif;
+    	text-decoration: unset;
+    	color: #000;
+
+	    &:hover {
+	    	background: #f5d100;
+	    }
+    }
+}
+
+.facet-browse-control-pagination-sort, .facet-browse-control-pagination-itemCount
+{
+	display: flex;
+    align-items: baseline;
+    margin-right: 50px;
+}
+
+.facet-browse-control-pagination-sort, .facet-browse-control-pagination-itemCount
+{
+	> label, select{
+		font-size: 13px;
+	}
+}
+
+// FORMS
+.kd-forms
+{
+	width: unset;
+    border: unset;
+    background: unset;
+    color: #847e77;
+    font-size: 13px;
+    text-decoration: unset;
+}
+
+.kd-form-elements
+{
+	height: 40px;
+    border-radius: 4px;
+    padding: 5px;
+    margin-bottom: 0;
+    padding-right: 30px;
+	font-size: 13px;
+	background-image: url("data:image/svg+xml;utf8,<svg width='2000px' height='2000px' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M1075 352q0 -13 -10 -23l-50 -50q-10 -10 -23 -10t-23 10l-393 393l-393 -393q-10 -10 -23 -10t-23 10l-50 50q-10 10 -10 23t10 23l466 466q10 10 23 10t23 -10l466 -466q10 -10 10 -23z'/></svg>");
+
+	@media (max-width: $screen-sm-min){
+		height: 30px;
+		display: inline-block;
+	}
+}
+
+.facets-facet-browse-list-header-sort-label-mobile{
+	@media (max-width: $screen-sm-min){
+		display: inline-block;
+		font-size: 13px;
+	}
+}
+
+// ICONS
+
+.easyask-product-reviews-rating-count
+{
+	width: 100%;
+	position: absolute;
+	left: 80px;
+	top: 2px;
+}
+
+.facets-facet-browse-category
+{
+	height: 75px;
+}
+
+.facets-item-list-display-selector > i
+{
+	color: black;
+}
+
+.facets-faceted-navigation-item-category
+{
+	padding: 10px 15px;
+	padding-left: 0px;
+}
+
+.facets-faceted-navigation-item-category-title
+{
+	font-size: 14px;
+	font-weight: bold;
+	color: black;
+	position: absolute;
+	height: 18px;
+	background-color: $superLightGrey;
+	padding: 0px;
+	padding-right: 6px;
+}
+
+.facets-faceted-navigation-item-category-facet-group-expander-icon
+{
+	padding: 0px;
+}
+
+.facets-faceted-navigation-item-category-facet-group
+{
+	border-top: 1px solid $lightGrey;
+}
+
+.facets-faceted-navigation-item-category-facet-optionlist
+{
+	padding-top: 5px;
+}
+
+.facets-browse-category-heading-main-description{
+	@media (max-width: $screen-sm-min){
+		margin: 0px;
+	}
+}
+
+.facets-facet-browse-header{
+	@media (max-width: $screen-sm-min){
+		margin-left:0px;
+		border-top: 1px solid #cfcfcf;
+
+	}
+}
+
+.facets-facet-browse-list-header{
+	@media (max-width: $screen-sm-min){
+		display:none;
+	}
+}
+
+.facets-facet-browse-list-header-mobile{
+	display:none;
+
+	@media (max-width: $screen-sm-min){
+		display: block;
+	}
+}
+
+.facets-facet-browse-list-header-sort-mobile{
+	float:right;
+	display: inline-block;
+}
+
+.facets-facet-browse-list-header-expander-mobile{
+	display: inline-block;	
+}
+
+
+.facets-facet-browse-list-header-expander-mobile-label{
+	font-size: 13px;
+}
+
+.facets-facet-browse-list-header-expander-button-mobile{
+	width: 30px;
+	height: 30px;
+	border: 1px solid;
+	font-size: 20px;
+	border-radius: 5px;
+	text-align: center;
+	margin: 0 auto;
+	padding: 0;
+}

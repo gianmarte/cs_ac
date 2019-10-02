@@ -1,0 +1,145 @@
+{
+    "name": "EasyAsk",
+    "fantasyName": "Easy Ask Integration",
+    "vendor": "Kodella",
+    "version": "1.0.0",
+    "type": "extension",
+    "target": "SCA,SCS",
+    "description": "Module for Integrating Easy Ask on the PLP and Search",
+    "skins": [],
+    "assets": {
+        "img": {
+            "files": []
+        },
+        "fonts": {
+            "files": []
+        },
+        "services": {
+            "files": [
+                "services/EasyAsk.Service.ss"
+            ]
+        }
+    },
+    "configuration": {
+        "files": [
+            "Modules/EasyAsk/Configuration/EasyAsk.json",
+            "Modules/EasyAsk/Configuration/EasyAsk.PageSize.json",
+            "Modules/EasyAsk/Configuration/EasyAsk.DisplayListOption.json"
+        ]
+    },
+    "sass": {
+        "entry_points": {
+            "shopping": "Modules/EasyAsk/Sass/_easyask-easyask.scss",
+            "myaccount": "Modules/EasyAsk/Sass/_easyask-easyask.scss"
+        },
+        "files": [
+            "Modules/EasyAsk/Sass/_easyask-easyask.scss",
+            "Modules/ProductViewsExt/Sass/_easyask-productviewsext.scss",
+            "Modules/CartExt/Sass/_easyask-product-specs.scss",
+            "Modules/EasyAsk/Sass/_easyask-buybox.scss",
+            "Modules/EasyAsk/Sass/_easyask-item-cell-list.scss",
+            "Modules/EasyAsk/Sass/_easyask-facted-navigation.scss"
+        ]
+    },
+    "templates": {
+        "application": {
+            "shopping": {
+                "files": [
+                    "Modules/EasyAsk/Templates/kodella_easyask_easyask.tpl",
+                    "Modules/ProductViewsExt/Templates/kodella_easyask_productviewsext.tpl",
+                    "Modules/EasyAsk/Templates/kodella_facets_faceted_navigation_item_ext.tpl",
+                    "Modules/EasyAsk/Templates/kodella_facets_item_list_show_selector_ext.tpl",
+                    "Modules/EasyAsk/Templates/kodella_facets_browse_category_heading.tpl",
+                    "Modules/CartExt/Templates/kodella_easyask_item_specs.tpl",
+                    "Modules/EasyAsk/Templates/kodella_easyask_item_cell_grid.tpl",
+                    "Modules/EasyAsk/Templates/kodella_easyask_item_cell_list.tpl",
+                    "Modules/EasyAsk/Templates/kodella_easyask_global_views_star_rating.tpl",
+                    "Modules/EasyAsk/Templates/kodella_facets_item_list_display_selector.tpl",
+                    "Modules/EasyAsk/Templates/kodella_facets_item_list_sort_selector.tpl",
+                    "Modules/EasyAsk/Templates/kodella_easyask_global_views_pagination.tpl",
+                    "Modules/EasyAsk/Templates/kodella_easyask_facets_faceted_navigation.tpl",
+                    "Modules/EasyAsk/Templates/kodella_easyask_facets_faceted_navigation_item_category.tpl"
+                ]
+            },
+            "myaccount": {
+                "files": [
+                    "Modules/EasyAsk/Templates/kodella_easyask_easyask.tpl",
+                    "Modules/ProductViewsExt/Templates/kodella_easyask_productviewsext.tpl",
+                    "Modules/EasyAsk/Templates/kodella_facets_faceted_navigation_item_ext.tpl",
+                    "Modules/EasyAsk/Templates/kodella_facets_item_list_show_selector_ext.tpl",
+                    "Modules/EasyAsk/Templates/kodella_facets_browse_category_heading.tpl",
+                    "Modules/CartExt/Templates/kodella_easyask_item_specs.tpl",
+                    "Modules/EasyAsk/Templates/kodella_easyask_item_cell_grid.tpl",
+                    "Modules/EasyAsk/Templates/kodella_easyask_item_cell_list.tpl",
+                    "Modules/EasyAsk/Templates/kodella_easyask_global_views_star_rating.tpl",
+                    "Modules/EasyAsk/Templates/kodella_facets_item_list_display_selector.tpl",
+                    "Modules/EasyAsk/Templates/kodella_facets_item_list_sort_selector.tpl",
+                    "Modules/EasyAsk/Templates/kodella_easyask_global_views_pagination.tpl",
+                    "Modules/EasyAsk/Templates/kodella_easyask_facets_faceted_navigation.tpl",
+                    "Modules/EasyAsk/Templates/kodella_easyask_facets_faceted_navigation_item_category.tpl"
+                ]
+            }
+        }
+    },
+    "javascript": {
+        "entry_points": {
+            "shopping": "Modules/EasyAsk/JavaScript/Kodella.EasyAsk.EasyAsk.js",
+            "myaccount": "Modules/EasyAsk/JavaScript/Kodella.EasyAsk.EasyAsk.js"
+        },
+        "application": {
+            "shopping": {
+                "files": [
+                    "Modules/EasyAsk/JavaScript/Kodella.EasyAsk.EasyAsk.js",
+                    "Modules/EasyAsk/JavaScript/EasyAsk.Router.js",
+                    "Modules/EasyAsk/JavaScript/EasyAsk.Facets.Browse.View.Ext.js",
+                    "Modules/EasyAsk/JavaScript/EasyAsk.Model.js",
+                    "Modules/EasyAsk/JavaScript/EasyAsk.Facets.FacetedNavigation.View.Ext.js",
+                    "Modules/EasyAsk/JavaScript/EasyAsk.Facets.FacetedNavigationItem.View.Ext.js",
+                    "Modules/EasyAsk/JavaScript/EasyAsk.Facets.ItemCell.View.Ext.js",
+                    "Modules/CartExt/JavaScript/Kodella.EasyAsk.CartExt.js",
+                    "Modules/CartExt/JavaScript/Cart.QuickAddToCart.View.Ext.js",
+                    "Modules/ProductViewsExt/JavaScript/Kodella.EasyAsk.ProductViewsExt.js",
+                    "Modules/ProductViewsExt/JavaScript/ProductViews.Price.View.Ext.js",
+                    "Modules/EasyAsk/JavaScript/EasyAsk.Facets.ItemListShowSelector.View.Ext.js",
+                    "Modules/EasyAsk/JavaScript/EasyAsk.Facets.Browse.CategoryHeading.View.Ext.js",
+                    "Modules/EasyAsk/JavaScript/EasyAsk.Facets.FacetedNavigationItemCategory.View.Ext.js",
+                    "Modules/EasyAsk/JavaScript/EasyAsk.Facets.ItemListSortSelector.View.Ext.js",
+                    "Modules/CartExt/JavaScript/EasyAsk.ProductViews.Price.View.Ext.js",
+                    "Modules/EasyAsk/JavaScript/EasyAsk.GlobalViews.StarRating.View.Ext.js",
+                    "Modules/EasyAsk/JavaScript/EasyAsk.GlobalViews.Pagination.View.Ext.js"
+                ]
+            },
+            "myaccount": {
+                "files": [
+                    "Modules/EasyAsk/JavaScript/Kodella.EasyAsk.EasyAsk.js",
+                    "Modules/EasyAsk/JavaScript/EasyAsk.Router.js",
+                    "Modules/EasyAsk/JavaScript/EasyAsk.Facets.Browse.View.Ext.js",
+                    "Modules/EasyAsk/JavaScript/EasyAsk.Model.js",
+                    "Modules/EasyAsk/JavaScript/EasyAsk.Facets.FacetedNavigation.View.Ext.js",
+                    "Modules/EasyAsk/JavaScript/EasyAsk.Facets.FacetedNavigationItem.View.Ext.js",
+                    "Modules/EasyAsk/JavaScript/EasyAsk.Facets.ItemCell.View.Ext.js",
+                    "Modules/CartExt/JavaScript/Kodella.EasyAsk.CartExt.js",
+                    "Modules/CartExt/JavaScript/Cart.QuickAddToCart.View.Ext.js",
+                    "Modules/ProductViewsExt/JavaScript/Kodella.EasyAsk.ProductViewsExt.js",
+                    "Modules/ProductViewsExt/JavaScript/ProductViews.Price.View.Ext.js",
+                    "Modules/EasyAsk/JavaScript/EasyAsk.Facets.ItemListShowSelector.View.Ext.js",
+                    "Modules/EasyAsk/JavaScript/EasyAsk.Facets.Browse.CategoryHeading.View.Ext.js",
+                    "Modules/EasyAsk/JavaScript/EasyAsk.Facets.FacetedNavigationItemCategory.View.Ext.js",
+                    "Modules/EasyAsk/JavaScript/EasyAsk.Facets.ItemListSortSelector.View.Ext.js",
+                    "Modules/CartExt/JavaScript/EasyAsk.ProductViews.Price.View.Ext.js",
+                    "Modules/EasyAsk/JavaScript/EasyAsk.GlobalViews.StarRating.View.Ext.js",
+                    "Modules/EasyAsk/JavaScript/EasyAsk.GlobalViews.Pagination.View.Ext.js"
+                ]
+            }
+        }
+    },
+    "ssp-libraries": {
+        "entry_point": "Modules/EasyAsk/SuiteScript/EasyAsk.Model.js",
+        "files": [
+            "Modules/EasyAsk/SuiteScript/EasyAsk.Model.js",
+            "Modules/EasyAsk/SuiteScript/EasyAsk.ServiceController.js",
+            "Modules/EasyAsk/SuiteScript/Kodella.EasyAsk.EasyAsk.js"
+        ]
+    },
+    "local_folder": "Workspace\\EasyAsk"
+}
