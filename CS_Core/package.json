@@ -39,7 +39,7 @@
         "gulp-ttf2woff": "1.1.1",
         "gulp-uglify": "3.0.0",
         "gulp-util": "3.0.8",
-        "handlebars": "4.0.11",
+        "handlebars": "4.5.3",
         "inquirer": "5.1.0",
         "is-my-json-valid": "2.17.2",
         "istanbul-api": "1.2.1",
