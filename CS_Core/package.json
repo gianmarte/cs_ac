@@ -59,7 +59,7 @@
         "request": "2.83.0",
         "run-sequence": "2.2.1",
         "sc5-styleguide": "file:./gulp/library/sc5-styleguide",
-        "shelljs": "0.8.1",
+        "shelljs": "0.8.5",
         "suitetalk": "file:./ns_npm_repository/suitetalk4node",
         "through": "2.3.8",
         "through2": "2.0.3",
