@@ -12,7 +12,7 @@
     "dependencies": {
         "amd-optimize": "0.6.1",
         "archiver": "2.1.1",
-        "async": "2.6.0",
+        "async": "2.6.4",
         "cli-spinner": "0.2.7",
         "credentials-inquirer": "file:./ns_npm_repository/credentials-inquirer",
         "del": "3.0.0",
