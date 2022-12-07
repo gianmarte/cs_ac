@@ -19,7 +19,7 @@
         "escodegen": "1.9.0",
         "esprima": "4.0.0",
         "estraverse": "4.2.0",
-        "express": "4.16.2",
+        "express": "4.17.3",
         "serve-index": "1.9.1",
         "glob": "7.1.2",
         "gulp": "3.9.1",
